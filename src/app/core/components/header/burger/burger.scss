@@ -1,0 +1,82 @@
+@import '../../../../../styles/color.scss';
+.burger_btn-line {
+  .menu {
+    transition: all ease 0.4s;
+
+    &::after,
+    &::before {
+      transition-duration: 0.3s, 0.3s;
+      transition-delay: 0.3s, 0;
+    }
+
+    &::after {
+      transition-property: bottom, transform;
+   
+    }
+
+    &::before {
+      transition-property: top, transform;
+    }
+  }
+
+  &.isActive {
+    padding: 20%;
+   
+    .menu {
+      background:none;
+    }
+    .menu::after,
+    .menu::before {
+      height: 1px;
+      transition-delay: 0.3s, 0;
+    }
+
+    .menu::after {
+      top:0;
+      transform:rotate(-45deg);
+    }
+
+    .menu::before {
+      bottom:0;
+      transform:rotate(45deg);
+    }
+  }
+}
+
+.btn_burger {
+  display: block;
+  position: relative;
+  background-color: transparent;
+  min-width: 2.25rem;
+  min-height: 2.25rem;
+  padding: 10%;
+
+  .menu {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 2px;
+    border-radius: 24px;
+    background-color: $green;
+    transition: all ease 0.4s;
+
+    &::after,
+    &::before {
+      position: relative;
+      display: block;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: $green;
+      content: '';
+    }
+
+    &::after {
+      top: 7px;
+    }
+
+    &::before {
+      bottom: 9px;
+    }
+  }
+}
