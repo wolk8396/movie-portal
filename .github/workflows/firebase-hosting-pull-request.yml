@@ -12,7 +12,7 @@ jobs:
       - run: npm install -g npm@latest
       - run: npm install
       - run: npm install -g firebase-tools
-      - run: ng build
+      - run: npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
