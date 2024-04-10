@@ -13,17 +13,21 @@ import NotFound from './app/modules/error/error';
 
 function App() {
   return (
-    <>
-      <Header/>
-      <Routes>
-        <Route path={PATHNAMES.main} element={<Main/>}/>
-        <Route path={PATHNAMES.film} element={<Film/>} />
-        <Route path={PATHNAMES.favorites} element={<Favorites/>} />
-        <Route path={PATHNAMES.sign_up} element={<SignUP/>} />
-        <Route path={PATHNAMES.sign_in} element={<SignIN/>} />
-        <Route path={PATHNAMES.error} element={<NotFound/>} />
-      </Routes>
-    </>
+    <div className='wrapper'>
+      <header className='header-app'>
+        <Header/>
+      </header>
+      <main className='main-app'>
+        <Routes>
+          <Route path={PATHNAMES.main} element={<Main/>}/>
+          <Route path={PATHNAMES.film} element={<Film/>} />
+          <Route path={PATHNAMES.favorites} element={<Favorites/>} />
+          <Route path={PATHNAMES.sign_up} element={<SignUP/>} />
+          <Route path={PATHNAMES.sign_in} element={<SignIN/>} />
+          <Route path={PATHNAMES.error} element={<NotFound/>} />
+        </Routes>
+      </main>
+    </div>
   );
 }
 

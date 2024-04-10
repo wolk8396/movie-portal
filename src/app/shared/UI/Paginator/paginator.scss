@@ -1,0 +1,21 @@
+@import '../../../../styles/mixins.scss';
+@import '../../../../styles/color.scss';
+@import '../../../../styles/fonts.scss';
+
+.paginator {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 0.3rem;
+  column-gap: 1.25rem;
+  width: 100%;
+  max-width: 24.4rem;
+  border: 1px solid;
+  margin: 0 auto;
+
+  &__bot-navigation {
+    @include fonts('Lexend', .8rem, $whiteF, 400);
+    background-color: $green;
+    padding: 0.2rem;
+    border-radius: .25rem;
+  }
+}

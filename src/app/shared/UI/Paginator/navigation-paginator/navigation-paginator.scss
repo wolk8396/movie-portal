@@ -1,0 +1,13 @@
+@import '../../../../../styles/mixins.scss';
+@import '../../../../../styles/color.scss';
+@import '../../../../../styles/fonts.scss';
+
+.btn-paginator {
+  @include fonts('Lexend', .8rem, $black, 400);
+  border: 1px solid $green;
+  padding: 0.2rem;
+
+  &.isActive {
+    color: $green;
+  }
+}
