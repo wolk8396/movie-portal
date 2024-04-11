@@ -1,0 +1,71 @@
+@import '../../../../styles/color.scss';
+@import '../../../../styles/fonts.scss';
+@import '../../../../styles/mixins.scss';
+
+ .short-story{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+
+  &__header {
+    display: flex;
+    width: 98%;
+    padding: 0.8rem 0;
+
+    .title {
+      text-align: left;
+      @include fonts('Montserrat', 1.6rem, $green, 600);
+    }
+  }
+
+  &__main {
+    display: flex;
+    flex-direction: row;
+    justify-content: normal;
+    width: 98%;
+
+    .poster{
+      width: 61%;
+      max-width: 38%;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .info {
+      display: flex;
+      justify-content: flex-start;
+      flex-direction: column;
+      margin-left: 0.2rem;
+
+      &__title {
+        @include fonts('Montserrat', 1rem, $lite_pink, 500);
+      }
+
+      &__item {
+        @include fonts('Montserrat', 1rem, $black, 400);
+      }
+    }
+
+  }
+}
+
+@media(max-width: 500px) {
+  .short-story {
+    .short-story__header
+    .title {
+      font-size: .9rem;
+    }
+
+    .short-story__main 
+    .info {
+      &__title,
+      &__item {
+        font-size: .7rem;
+      }
+    }
+  }
+}
