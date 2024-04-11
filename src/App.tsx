@@ -10,6 +10,7 @@ import SignUP from './app/modules/sign-up/sign-up';
 import SignIN from './app/modules/sign-in/sign-in';
 import Favorites from './app/modules/favorites/favorites';
 import NotFound from './app/modules/error/error';
+import { useWindowResize } from './app/core/hooks/useWindowResize';
 
 function App() {
   return (

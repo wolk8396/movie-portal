@@ -4,10 +4,24 @@
 
 .btn-paginator {
   @include fonts('Lexend', .8rem, $black, 400);
-  border: 1px solid $green;
-  padding: 0.2rem;
-
+  border: 1.3px solid $green;
+  padding: 3px 6px;
   &.isActive {
     color: $green;
+  }
+}
+
+.nav_ext {
+  border: 1.3px solid $green;
+  color: $black;
+  padding: 2px 6px;
+  display: none;
+
+  &.isDistractive {
+    display: none;
+  }
+
+  &.isActive {
+    display: block;
   }
 }

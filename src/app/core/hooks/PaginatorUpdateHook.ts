@@ -1,38 +1,25 @@
-export const usePaginatorUpdate = (array: number[], currentPage: number, total:number): number[] => {
-  const penultimateValue: number = array[array.length -1];
-    const firstValue: number = array.findIndex(index => currentPage === index);
-    const checkLat = total === penultimateValue + 1;
-    let char = 4;
-    let previous = 4;
-    let count = currentPage + 9;
-    let countPrevious = currentPage - 4;
-    let start = 5;
+import { useEffect, useState } from "react";
 
-    if (total < count) {
-      char = total - currentPage -1;
+export const usePaginatorUpdate = (totalPages:number, start:number = 2): {array: number[]} => {
+  const [array, setArray] = useState<number[]>([]);
+
+  useEffect(() => {
+    if (totalPages === 2) {
+      setArray([])
     };
 
-    if (!countPrevious) {
-      previous = currentPage - 2
+    if (totalPages <= 12) {
+      const array = [...Array.from({length: totalPages - start}, (_, i) => ( i + 2))]
+      setArray(array);
     };
 
-    if (currentPage === 1) {
-      return [...Array.from({length: 9}, (_, i) => ( i + 2))];
-    }
-
-    if (currentPage === total) {
-     return [...Array.from({length: 9}, (_, i) => ((total -1) - i))].reverse()
-    };
- 
-    if (currentPage === penultimateValue && !checkLat) {
-      array.splice(0, char);
-      return [...array, ...Array.from({length: char}, (_, i) => (i + currentPage + 1))];
-    };
-  
-    if (0 === firstValue && array[0] - 1 !== 1) {
-      array.splice(start, previous);
-      return [...Array.from({length: previous}, (_, i) => currentPage - (i + 1)).reverse(), ...array]
+    if (totalPages > 12) {
+      const array = [...Array.from({length: 9}, (_, i) => ( i + 2))];
+      setArray(array);
     };
 
-    return [...array];
+  }, [totalPages])
+
+
+  return { array }
 }

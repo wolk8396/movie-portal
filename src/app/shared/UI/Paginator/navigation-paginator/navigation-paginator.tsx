@@ -2,17 +2,23 @@ import React, { useEffect, useState } from 'react';
 
 import './navigation-paginator.scss'
 import classNames from 'classnames';
+import { usePaginatorUpdate } from '../../../../core/hooks/PaginatorUpdateHook';
 
 interface NavigationPaginatorProps {
-  insertNumbers : number[];
   totalPages: number,
   updatePage: (page: number) => void,
   page:number,
-}
+};
 
 const NavigationPaginator: React.FC<NavigationPaginatorProps> = props => {
-  const {insertNumbers , totalPages, page, updatePage} = props;
-  const [array, setArray] = useState<number[]>(insertNumbers);
+  const {totalPages, page, updatePage} = props;
+  const {array} = usePaginatorUpdate(totalPages);
+  const [extPrevious, setExtPrevious] = useState<boolean>(false);
+  const [extNext, setExtNext] = useState<boolean>(true);
+  const [update, setUpdate] = useState<number[]>([]);
+  const checkTotal = totalPages > 12;
+  const previous  = classNames('nav_ext', {isActive: extPrevious, isDistractive: !checkTotal});
+  const next = classNames('nav_ext', {isActive: extNext, isDistractive: !checkTotal});
 
   const onPaginatorUpdate = (array: number[], currentPage: number, total:number): number[] => {
     const penultimateValue: number = array[array.length -1];
@@ -28,9 +34,13 @@ const NavigationPaginator: React.FC<NavigationPaginatorProps> = props => {
       char = total - currentPage -1;
     };
 
-    if (!countPrevious) {
-      previous = currentPage - 2
+    if (countPrevious <= 0) {
+      previous = currentPage - 2;
     };
+
+    if (currentPage - 1 === previous) {
+      return [...Array.from({length: 9}, (_, i) => ( i + 2))];
+    }
 
     if (currentPage === 1) {
       return [...Array.from({length: 9}, (_, i) => ( i + 2))];
@@ -47,28 +57,55 @@ const NavigationPaginator: React.FC<NavigationPaginatorProps> = props => {
     };
   
     if (0 === firstValue && array[0] - 1 !== 1) {
-
       array.splice(start, previous);
-      console.log(array, previous);
-      
       return [...Array.from({length: previous}, (_, i) => currentPage - (i + 1)).reverse(), ...array]
     };
 
     return [...array];
   };
 
+  useEffect(() => {
+    if (totalPages > 12 && !!update.length) {
+      const upDate = onPaginatorUpdate(update, page, totalPages);
+      setUpdate(upDate);
+     
+      if (totalPages - 1 === upDate.at(-1)) {
+        setExtNext(false);
+        setExtPrevious(true);
+      } else setExtPrevious(true);
+
+      if (upDate[0] === 2) {
+        setExtPrevious(false);
+      };
+
+    };
+
+    if (!update.length) setUpdate(array);
+
+  },[array, page]);
+
   const onSetActive = (currentPage: number) => {
     return classNames('btn-paginator', {isActive: page === currentPage})
   };
 
   const handleChangePage = (currentPage: number) => {
+    const findIndex = update.findIndex(item => currentPage === item);
+    if (currentPage === 1) {
+        setExtNext(true);
+        setExtPrevious(false);
+    }
+    
+    if (currentPage === totalPages) {
+      setExtNext(false);
+      setExtPrevious(true);
+    };
+
+    if (findIndex === 0) {
+      setExtNext(true);
+    };
+
     updatePage(currentPage);
   };
-
-  useEffect(() => {
-    const upDate = onPaginatorUpdate(array, page, totalPages);
-    setArray(upDate);
-  }, [page]);
 
   return (
     <>
@@ -78,13 +115,16 @@ const NavigationPaginator: React.FC<NavigationPaginatorProps> = props => {
       >
         1
       </button>
-      {array.map((item, i) => (
+      <span className={previous}
+      >...</span>
+      {update.map((item, i) => (
 				<button 
           className={onSetActive(item)}
           key={i} 
           onClick={() => handleChangePage(item)}
         >{item}</button>
 			))}
+        <span className={next}>...</span>
         <button
         className={onSetActive(totalPages)}
         onClick={() => handleChangePage(totalPages)}

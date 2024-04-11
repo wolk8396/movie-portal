@@ -6,11 +6,13 @@
   display: flex;
   flex-wrap: wrap;
   row-gap: 0.3rem;
-  column-gap: 1.25rem;
+  column-gap: 0.25rem;
   width: 100%;
-  max-width: 24.4rem;
-  border: 1px solid;
+  max-width: 34.4rem;
   margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
 
   &__bot-navigation {
     @include fonts('Lexend', .8rem, $whiteF, 400);

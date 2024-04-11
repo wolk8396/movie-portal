@@ -1,0 +1,12 @@
+.wrapper-main{
+  height: 772px;
+  display: flex;
+  justify-content: normal;
+  flex-direction: column;
+
+  .footer {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+  }
+}

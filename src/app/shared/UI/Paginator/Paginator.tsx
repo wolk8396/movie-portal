@@ -1,5 +1,3 @@
-// /* eslint-disable react-hooks/rules-of-hooks */
-
 import React, { useState } from 'react';
 import './paginator.scss'
 import NavigationPaginator from './navigation-paginator/navigation-paginator';
@@ -10,9 +8,8 @@ interface PaginatorProps {
 }
 
 const Paginator = ({ totalPages, onPageChange }: PaginatorProps) => {
-  const [array, setArray] = useState<number[]>([2, 3, 4, 5, 6, 7, 8, 9, 10]);
   const [page, setPage] = useState<number>(1);
-  
+
   const onIncrease = () => {
     let value = page
     if (page !== totalPages) {
@@ -20,7 +17,7 @@ const Paginator = ({ totalPages, onPageChange }: PaginatorProps) => {
       setPage(value);
       onPageChange(value);
     }
-  }
+  };
 
   const onDecrease = () => {
     let value = page
@@ -37,26 +34,27 @@ const Paginator = ({ totalPages, onPageChange }: PaginatorProps) => {
   };
 
   return (
-    <div className='paginator'>
-      <button
-        className='paginator__bot-navigation'
-        onClick={onDecrease}
-      >
-        Previous
-      </button>
-      <NavigationPaginator 
-        insertNumbers={array} 
-        totalPages={totalPages}
-        page={page}
-        updatePage={(page: number) => onUpdate(page)}
-      />
-      <button
-        className='paginator__bot-navigation'
-        onClick={onIncrease}
-      >
-        Next
-      </button>
-    </div>
+    <>
+    {totalPages > 1  && 
+      <div className='paginator'>
+        <button
+          className='paginator__bot-navigation'
+          onClick={onDecrease}
+        >
+          Previous
+        </button>
+        <NavigationPaginator
+          totalPages={totalPages}
+          page={page}
+          updatePage={(page: number) => onUpdate(page)} />
+        <button
+          className='paginator__bot-navigation'
+          onClick={onIncrease}
+        >
+          Next
+        </button>
+      </div>}
+    </>
   );
 };
 
