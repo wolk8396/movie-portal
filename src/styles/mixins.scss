@@ -5,6 +5,17 @@
 	align-items: $align;
 }
 
+@mixin btn_pink {
+	width: 100%;
+	height: 40px;
+	border-radius: 40px;
+	border: 1px solid #FF48F8;
+	color: #ff48f8;
+	background-color: transparent;
+	line-height: 100%;
+	margin-bottom: .5rem;
+}
+
 @mixin title($weight, $size, $position) {
 	font-weight: $weight;
 	font-size: $size;
@@ -16,10 +27,11 @@
 	padding-left: 0;
 }
 
-@mixin fonts($font, $size, $color, $display: swap) {
+@mixin fonts($font, $size, $color, $weight, $display: swap) {
 	font-display: $display;
 	font-family: $font, sans-serif;
 	font-size: $size;
+	font-weight: $weight;
 	color: $color;
 }
 
