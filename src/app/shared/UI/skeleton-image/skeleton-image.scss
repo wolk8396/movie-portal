@@ -1,0 +1,17 @@
+.loading-image {
+  animation: blink 1s ease infinite;
+  padding-bottom: 140%;
+}
+
+
+@keyframes blink {   
+  0% {     
+    background: rgba(0, 0, 0, 0.11);;   
+  }   
+  50% {     
+    background: #FFFFFF;   
+  } 
+  100% {
+    background: rgba(0, 0, 0, 0.11);
+   }
+}

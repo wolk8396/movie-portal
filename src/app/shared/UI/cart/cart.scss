@@ -51,6 +51,12 @@
     }
 
   }
+
+  &__description {
+    @include fonts('Montserrat', 1rem, $black, 500);
+    margin: 1rem 0;
+    width: 98%;
+  }
 }
 
 @media(max-width: 500px) {
@@ -66,6 +72,10 @@
       &__item {
         font-size: .7rem;
       }
+    }
+
+    &__description {
+      font-size: .6rem;
     }
   }
 }
