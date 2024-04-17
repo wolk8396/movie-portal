@@ -18,6 +18,7 @@ interface MovieItem {
   type: string;
   posterUrl: string;
   posterUrlPreview: string;
+  description?: string;
 }
 
 interface Country {
@@ -28,4 +29,14 @@ interface Genre {
   genre: string;
 }
 
-export type {MovieModel, MovieItem, Country, Genre}
+interface MapDateFilms {
+  kinopoiskId: number;
+  posterUrl: string;
+  nameRu?: string | null;
+  genres?: string;
+  description?: string;
+  countries?: string;
+  year?: number;
+}
+
+export type {MovieModel, MovieItem, Country, Genre, MapDateFilms}
