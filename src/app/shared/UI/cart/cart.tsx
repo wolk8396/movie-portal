@@ -7,21 +7,22 @@ import SkeletonImage from '../skeleton-image/skeleton-image';
 
 interface CartProps {
   date: MapDateFilms,
-  children: React.ReactNode;
+  titleElement:  React.ReactNode;
+  buttonElement?: React.ReactNode;
+  children?: React.ReactNode;
 }
 
-const Cart: React.FC<CartProps> = ({date, children}) => {
+const Cart: React.FC<CartProps> = ({date, titleElement, buttonElement}) => {
   return (
     <div className='short-story'>
       <div className='short-story__header'>
-       {children}
+       {titleElement}
       </div>
       <div className='short-story__main'>
         <div className='poster'>
         <Images src={date.posterUrl} alt={''} >
           <SkeletonImage/>
         </Images>
-          {/* <LazyLoadImg src={date.posterUrl} alt={''} ratio={0} /> */}
         </div>
         <div className='info'>
           <span className='info__title'>{date.nameRu}</span>
@@ -34,6 +35,7 @@ const Cart: React.FC<CartProps> = ({date, children}) => {
         </div>
       </div>
       <span className='short-story__description'>{date.description}</span>
+      {buttonElement}
     </div>
   )
 }

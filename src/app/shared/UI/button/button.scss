@@ -1,0 +1,24 @@
+@import '../../../../styles/color.scss';
+@import '../../../../styles/fonts.scss';
+@import '../../../../styles/mixins.scss';
+
+.btn {
+  border-radius: 40px;
+  width: 100%;
+  max-width: 250px;
+  padding: .78rem 0;
+  @include fonts('Montserrat', 1rem, $black, 500);
+
+  &.pink {
+    border: 1px solid #FF48F8;
+    color: #ff48f8;
+    background-color: transparent;
+    line-height: 100%;
+  }
+
+  &.green {
+    background-color: #00f600;
+    border: none;
+  }
+}
+

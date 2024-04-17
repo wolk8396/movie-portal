@@ -23,7 +23,7 @@ const Main: React.FC = () => {
  useEffect(() => {
   if (typeof data !== 'undefined' && isSuccess) {
     setTotalPages(data.totalPages);
-    setTotalPages(35);
+    // setTotalPages(35);
   };
 
  }, [page, data])
