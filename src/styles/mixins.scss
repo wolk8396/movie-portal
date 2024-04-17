@@ -42,6 +42,21 @@
 	border-radius: $radius;
 }
 
+@mixin buttonActive{
+	border-radius: 40px;
+	border: 1px solid #FF48F8;
+	color: #ff48f8;
+	background-color: transparent;
+	line-height: 100%;
+}
+
+@mixin buttonAdd {
+	background-color: #00f600;
+	border: none;
+	padding: .78rem 0;
+	line-height: 100%;
+}
+
 @mixin border($height, $type, $color, $radius: 0) {
 	border: $height $type $color;
 	border-radius: $radius;
