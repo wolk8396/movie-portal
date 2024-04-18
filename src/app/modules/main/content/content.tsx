@@ -1,9 +1,8 @@
 import React from 'react';
 
 import './content.scss'
-import { MapDateFilms, MovieItem } from '../../../core/models/movie.models';
+import { MapDateFilms } from '../../../core/models/movie.models';
 import Cart from '../../../shared/UI/cart/cart';
-import { NavLink } from 'react-router-dom';
 import { PATHNAMES } from '../../../shared/consts/routes';
 import NavTitle from '../../../shared/UI/title-cart/nav-title';
 import Button from '../../../shared/UI/button/button';
@@ -17,7 +16,6 @@ const Content: React.FC<ContentProps> = ({date}) => {
   const onAddCart = (item: MapDateFilms) => {
     console.log(item);
   };
-
 
   return (
     <div className='content'>
@@ -39,6 +37,7 @@ const Content: React.FC<ContentProps> = ({date}) => {
                 title={'Add to favorites'} 
                 className={'green'}
                 onClick={() => onAddCart(item)}
+                style={{maxWidth: '200px', padding: '0.6rem 0'}}
               />
               }
             />

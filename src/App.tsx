@@ -17,7 +17,6 @@ const NotFound =  lazy(() => import('./app/modules/error/error'));
 
 function App() {
   const {loading, error} = useAppSelector(state => state[KEY_LOADING_APP]);
-
   return (
     <>
       <Spinner loading={loading}/>

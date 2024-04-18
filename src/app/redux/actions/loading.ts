@@ -9,5 +9,12 @@ function loading(loading: boolean, error: boolean) {
     }
   }
 });
-// export const errorModal = createAction('ERROR_MODAL');
+export const stopAction = createAction('STOP_LOADING', 
+function stopAction(action: boolean) {
+  return {
+    payload: {
+      isAction: action
+    }
+  }
+});
 export const ResetStateLoading = createAction('RESET_STATE_LOADING');
