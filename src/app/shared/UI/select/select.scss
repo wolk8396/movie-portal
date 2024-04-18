@@ -1,0 +1,120 @@
+@import '../../../../styles/color.scss';
+@import '../../../../styles/fonts.scss';
+@import '../../../../styles/mixins.scss';
+
+.custom-select {
+  position: relative;
+  max-width: 500px;
+  width: 100%;
+  @include fonts('Montserrat', 1rem, $black, 500);
+  color: #000;
+  // z-index: 1;
+  // margin-top: 3rem;
+
+  .select-button {
+    width: 100%;
+    @include fonts('Montserrat', 1rem, $black, 500);
+    background-color: #fff;
+    padding: 0.675em 1em;
+    border: 1px solid #cccccc;
+    border-radius: 1.2rem;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .selected-value {
+      text-align: left;
+    }
+
+    .arrow {
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 6px solid #000;
+      transition: transform ease-in-out 0.3s;
+    }
+  }
+
+  .select-dropdown {
+    position: absolute;
+    list-style: none;
+    width: 100%;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    border: 1px solid #caced1;
+    border-radius: 4px;
+    padding: 10px;
+    margin-top: 10px;
+    max-height: 200px;
+    overflow-y: auto;
+    transition: 0.5s ease;
+    z-index: 2;
+
+    transform: scaleY(0);
+    opacity: 0;
+    visibility: hidden;
+
+    &:focus-within {
+      box-shadow: 0 10px 25px rgba(94, 108, 233, 0.6);
+    }
+
+    li {
+      position: relative;
+      cursor: pointer;
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+
+      label {
+        width: 100%;
+        padding: 8px 10px;
+        cursor: pointer;
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+      }
+    }
+
+    &::-webkit-scrollbar {
+      width: 7px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 25px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #ccc;
+      border-radius: 25px;
+    }
+
+    li:hover,
+    input:checked ~ label {
+      background-color: #f2f2f2;
+    }
+
+    input:focus ~ label {
+      background-color: #dfdfdf;
+    }
+
+    input[type="radio"] {
+      position: absolute;
+      left: 0;
+      opacity: 0;
+    }
+  }
+
+  &.active {
+    .arrow {
+      transform: rotate(180deg);
+    }
+
+    .select-dropdown {
+      opacity: 1;
+      visibility: visible;
+      transform: scaleY(1);
+    }
+  }
+}

@@ -17,8 +17,8 @@ const NavigationPaginator: React.FC<NavigationPaginatorProps> = props => {
   const [extNext, setExtNext] = useState<boolean>(true);
   const [update, setUpdate] = useState<number[]>([]);
   const checkTotal = totalPages > 12;
-  const previous  = classNames('nav_ext', {isActive: extPrevious, isDistractive: !checkTotal});
-  const next = classNames('nav_ext', {isActive: extNext, isDistractive: !checkTotal});
+  const previous  = classNames('nav_ext', {isActive: extPrevious});
+  const next = classNames('nav_ext', {isActive: extNext});
 
   const onPaginatorUpdate = (array: number[], currentPage: number, total:number): number[] => {
     const penultimateValue: number = array[array.length -1];
@@ -115,8 +115,7 @@ const NavigationPaginator: React.FC<NavigationPaginatorProps> = props => {
       >
         1
       </button>
-      <span className={previous}
-      >...</span>
+      {checkTotal && <span className={previous}>...</span>}
       {update.map((item, i) => (
 				<button 
           className={onSetActive(item)}
@@ -124,7 +123,7 @@ const NavigationPaginator: React.FC<NavigationPaginatorProps> = props => {
           onClick={() => handleChangePage(item)}
         >{item}</button>
 			))}
-        <span className={next}>...</span>
+        {checkTotal && <span className={next}>...</span>}
         <button
         className={onSetActive(totalPages)}
         onClick={() => handleChangePage(totalPages)}

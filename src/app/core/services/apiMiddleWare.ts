@@ -10,15 +10,15 @@ export const apiMiddleWare: Middleware<{}, RootState, Dispatch<Action>> = ({ dis
     case LOADING_PENDING:
       dispatch(loadingSpinner(true, false))
       break;
-    case LOADING_FULFILLED:
-      dispatch(loadingSpinner(false, false))
-      break;
     case LOADING_REJECTED:
       dispatch(loadingSpinner(false, true))
+      break;
+    case LOADING_FULFILLED:
+      dispatch(loadingSpinner(false, false))
       break;
     default:
       break;
   }
-
+  
   return response;
 };

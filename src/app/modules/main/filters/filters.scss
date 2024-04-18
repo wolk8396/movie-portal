@@ -1,0 +1,119 @@
+.filters{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  position: fixed;
+  z-index: 17;
+  height: 71px;
+
+  .wrapper-filters {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 93%;
+    max-width: 1200px;
+    margin: 0 auto;
+    z-index: 22;
+  }
+
+  .filters-menu {
+    &.isActive {
+      position: fixed;
+      overflow: hidden;
+      top: 147px;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 16;
+      background: rgba(41, 41, 41, 0.6);
+    }
+
+    .forms {
+      position: fixed;
+      align-items: flex-start;
+      z-index: 17;
+      background-color: #FCFCFC;
+      right: -100%;
+      top: 147px;
+      width: 100%;
+      z-index: 5;
+      height: 177px;
+
+      &.isActive {
+        right: 0;
+        transition: all ease 0.5s;
+      }
+
+      .wrapper-forms {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin: 0 auto;
+        margin-top: 1rem;
+        height: 120px;
+        width: 93%;
+        max-width: 1200px;
+
+        .container-input {
+          display: none;
+        }
+
+        .container-btn {
+          display: none;
+        }
+      }
+    }
+  }
+
+}
+
+@media(max-width: 800px) {
+  .filters {
+    .wrapper-filters {
+      .container-input {
+        display: none;
+      }
+      .btn {
+        margin-left: 1rem;
+      }
+
+      &.isActive {
+        .btn {
+         display: none;
+        }
+      }
+    }
+  
+    .filters-menu {
+      .forms {
+        height: 255px;
+        top: 65px;
+     
+        .wrapper-forms {
+          height: 210px;
+          margin-top: 1.5rem;
+          // width: 75%;
+          max-width: 700px;
+          align-items: center;
+
+          .container-input {
+            display: block;
+          }
+          .container-btn {
+            display: flex;
+            width: 100%;
+            .btn {
+              margin: 0 auto;
+            }
+          }
+        }
+      }
+    }
+    
+    
+  }
+  
+}
