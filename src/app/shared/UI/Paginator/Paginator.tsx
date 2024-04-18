@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './paginator.scss'
 import NavigationPaginator from './navigation-paginator/navigation-paginator';
 
@@ -32,6 +32,10 @@ const Paginator = ({ totalPages, onPageChange }: PaginatorProps) => {
     onPageChange(page);
     setPage(page);
   };
+
+  useEffect(() => {
+    setPage(1);
+  }, [totalPages])
 
   return (
     <>
