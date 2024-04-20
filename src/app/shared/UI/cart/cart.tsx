@@ -12,7 +12,7 @@ interface CartProps {
   children?: React.ReactNode;
 }
 
-const Cart: React.FC<CartProps> = ({date, titleElement, buttonElement}) => {
+const Cart: React.FC<CartProps> = ({date, titleElement, children}) => {
   return (
     <div className='short-story'>
       <div className='short-story__header'>
@@ -35,7 +35,7 @@ const Cart: React.FC<CartProps> = ({date, titleElement, buttonElement}) => {
         </div>
       </div>
       <span className='short-story__description'>{date.description}</span>
-      {buttonElement}
+      {children}
     </div>
   )
 }

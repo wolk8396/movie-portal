@@ -8,9 +8,15 @@ export const useLoadingImage = (src: string): { url: string | undefined; loading
     const loadImage = async () => {
       const img = new Image();
       img.src = src;
-      setUrl(src);
-      await img.decode();
-      setLoading(false);
+      try {
+        setUrl(src);
+        const url = await img.decode();
+        setLoading(false);
+        return url
+      } catch (error) {
+        setUrl(src);
+        setLoading(false);
+      }
     };
 
     loadImage();
