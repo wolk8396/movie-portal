@@ -5,10 +5,10 @@ import './button.scss';
 import { DynamicKeyModels } from '../../../core/models/dynamic.key.models';
 
 interface ButtonProps {
-  title: string,
-  className: string
-  onClick: () => void
-  style: DynamicKeyModels
+  title: string;
+  className: string;
+  onClick: () => void;
+  style: DynamicKeyModels;
 }
 
 const Button: React.FC<ButtonProps> = ({title, className, onClick, style}) => {
@@ -25,6 +25,3 @@ const Button: React.FC<ButtonProps> = ({title, className, onClick, style}) => {
 }
 
 export default Button;
-
-// max-width: 200px;
-// padding: 0.6rem 0;

@@ -24,16 +24,13 @@ const Main: React.FC = () => {
   const [value, setValue] = useState<string>('')
   const debounced = useDebounce(value, 400);
   const {screenHeight} = useWindowResize();
-
   const [page, setPage] = useState<number>(1);
   const [type, setType] = useState<string>('TOP_POPULAR_ALL');
   const [typeSort, setTypeSort] = useState<DynamicKeyModels>();
-
   const [trigger, search] = movieApi.useLazySearchQuery();
   const {isSuccess, data } = movieApi.useGetCollectionsMovieQuery({type:type, page:page});
   const [isDate, setIsDate] = useState<MovieModel| null>(null);
   const {dateFilm} = useMapDate(isDate?.items, isSuccess, typeSort);
-
   const [totalPages, setTotalPages] = useState<number>(0);
 
   useEffect(() => {
@@ -49,8 +46,6 @@ const Main: React.FC = () => {
       setTotalPages(search.data.totalPages);
     }
   }, [search.data, page]);
-
-  
 
   useEffect(() => {
     if (debounced.length >= 3) {

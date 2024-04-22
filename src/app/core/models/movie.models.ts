@@ -63,6 +63,7 @@ interface MapDateFilms {
   countries?: string;
   rating?: number | null;
   year?: number;
+  favorites?:boolean;
   [key: string]:any
 }
 
