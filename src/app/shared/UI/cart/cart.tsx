@@ -10,13 +10,20 @@ interface CartProps {
   titleElement:  React.ReactNode;
   buttonElement?: React.ReactNode;
   children?: React.ReactNode;
+  closeBtn?: boolean;
+  onDeleteCart?: () => void;
 }
 
-const Cart: React.FC<CartProps> = ({date, titleElement, children}) => {
+const Cart: React.FC<CartProps> = ({date, titleElement, children, closeBtn, onDeleteCart}) => {
   return (
     <div className='short-story'>
       <div className='short-story__header'>
        {titleElement}
+       {closeBtn && 
+        <button className='delete-cart' onClick={onDeleteCart}>
+          <span className='close'></span>
+        </button>
+      }
       </div>
       <div className='short-story__main'>
         <div className='poster'>

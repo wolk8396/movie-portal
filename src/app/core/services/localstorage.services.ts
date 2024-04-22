@@ -4,8 +4,6 @@ const getItems = (): MapDateFilms[] => {
   return JSON.parse(localStorage.getItem('films') || '[]');
 }
 
-
-
 const setItems = (items: MapDateFilms): void => {
   const films = getItems();
   const addFilms = [...films, items];
