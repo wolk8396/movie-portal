@@ -14,6 +14,42 @@
   &__header {
     display: flex;
     width: 100%;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+
+    .delete-cart {
+      width: 20px;
+      height: 20px;
+      .close {
+        position: relative;
+        display: block;
+      }
+
+      .close::after {
+        position: relative;
+        display: block;
+        // left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: $green;
+        top:-2px;
+        transform:rotate(-45deg);
+        content: '';
+      }
+  
+      .close::before {
+        position: relative;
+        display: block;
+        height: 2px;
+        background-color: $green;
+        bottom:0;
+        transform:rotate(45deg);
+        content: '';
+      }
+      
+    }
 
     .title {
       text-align: left;

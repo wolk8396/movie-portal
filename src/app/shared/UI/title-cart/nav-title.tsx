@@ -8,7 +8,6 @@ interface NavTitleProps {
 }
 
 const NavTitle: React.FC<NavTitleProps> = ({link, title, className}) => {
-
   return (
     <>
       <NavLink className={className} to={link}>
