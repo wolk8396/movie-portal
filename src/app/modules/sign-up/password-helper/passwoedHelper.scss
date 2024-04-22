@@ -1,0 +1,33 @@
+@import '../../../../styles/color.scss';
+@import '../../../../styles/fonts.scss';
+@import '../../../../styles/mixins.scss';
+
+.hint-password.isValid {
+  color: $black;
+}
+
+.hint-password.isHidden {
+  display: none;
+}
+
+.hint-password {
+  @include flex(row, space-around, center);
+  @include UL();
+  @include fonts('Montserrat', .7rem,  $red_lite, 500);
+  width: 81%;
+  min-width: 320px;
+  user-select: none;
+  background-color: transparent;
+
+  .hints {
+    @include fonts('Montserrat', .7rem, $black, 500);
+    list-style-type: none;
+    background-color: transparent;
+ 
+
+    &.isActive {
+      color: $green;
+    }
+
+  }
+}

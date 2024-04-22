@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './input.scss';
+import './input-search.scss';
 import { DynamicKeyModels } from '../../../core/models/dynamic.key.models';
 
 interface InputProps {
@@ -12,7 +12,7 @@ interface InputProps {
   onBlur?: () => void;
 }
 
-const Input: React.FC<InputProps> = (props) => {
+const InputSearch: React.FC<InputProps> = (props) => {
   const {label, placeholder, onChange, onFocus, onBlur, styleConf} = props;
   return (
     <div className='container-input'>
@@ -30,4 +30,4 @@ const Input: React.FC<InputProps> = (props) => {
   )
 }
 
-export default Input;
+export default InputSearch;
