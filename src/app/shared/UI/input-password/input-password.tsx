@@ -46,18 +46,18 @@ const InputPassWord: React.FC<InputPassWord> = ({styleMask, label, placeholder, 
           className="form-input" 
           placeholder={placeholder}
         />
-        <span className="eye" onClick={onHandlerEye}>
+        <button className="eye" onClick={onHandlerEye}>
         {!showPassword ? (
           <img src={eye} alt="" /> 
           ) : (
             <img src={eye_invisible} alt="" />
           )}
-        </span>
+        </button>
       </span>
     </div>
-    <span className='validMessage'>
+    <div className='validMessage'>
         {children}
-    </span>
+    </div>
     </div>
     
   )

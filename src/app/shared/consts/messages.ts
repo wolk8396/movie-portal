@@ -12,4 +12,8 @@ const confirmPassword: MassagesPassword = {
   requirementsMassages: 'Both passwords must be the same',
 };
 
-export {deleteFavoritesText, passwordMassages, confirmPassword};
+const emailValid = 'Please enter a valid email';
+
+const Password = 'The password must contain from 8 to 20 characters.';
+
+export {deleteFavoritesText, passwordMassages, confirmPassword, emailValid};

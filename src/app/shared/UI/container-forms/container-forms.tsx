@@ -1,6 +1,7 @@
 import React, { FormEvent } from 'react';
 import './container-forms.scss'
 import NavTitle from '../title-cart/nav-title';
+import { DynamicKeyModels } from '../../../core/models/dynamic.key.models';
 
 interface ContainerFormsProps {
   children: React.ReactNode;
@@ -8,13 +9,14 @@ interface ContainerFormsProps {
   link: string;
   titleLink: string;
   onSubmit?: (event: FormEvent<HTMLFormElement>) => void;
+  styleForms?:DynamicKeyModels
 }
 
-const ContainerForms: React.FC<ContainerFormsProps> = ({children, title, link, titleLink, onSubmit}) => {
+const ContainerForms: React.FC<ContainerFormsProps> = ({children, title, link, titleLink, onSubmit, styleForms}) => {
   return (
     <div className='container-forms'>
       <span className='container-forms__title'>{title}</span>
-      <form className='container-forms__form' onSubmit={onSubmit}>
+      <form className='container-forms__form' onSubmit={onSubmit} style={styleForms}>
         {children}
       </form>
       <div className='container-forms__link'>

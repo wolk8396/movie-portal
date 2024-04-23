@@ -1,11 +1,12 @@
 interface FormDataModel {
-  username: string;
+  email: string;
   password: string;
   confPassWord?: string;
+  uuid: string;
 }
 
 interface FormDataValidModel {
-  username: boolean;
+  email: boolean;
   password: boolean;
   confPassWord: boolean;
 }

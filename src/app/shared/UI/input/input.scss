@@ -2,40 +2,45 @@
 @import '../../../../styles/fonts.scss';
 @import '../../../../styles/mixins.scss';
 
-.container-password {
-  @include flex(column, space-between, center);
+.container-input {
+  @include flex(column, normal, normal);
   width: 100%;
 
-  .input-password {
-    width: 100%;
-    padding: 2.5% 2%;
-    border: 1px solid #cccccc;
-    width: 100%;
+
+  &__container {
+    @include flex(column, normal, normal);
+    max-width: 500px;
     border-radius: 20px;
-    @include flex(row, center, center);
-  
+    border: '1px solid #cccccc';
+
     &.isNotValid {
       border: 1px solid $red_lite;
     }
+
+    .title {
+      margin-bottom: .5rem;
+      margin-left: .7rem;
+      font-size: 14px;
+    }
   
-    &__container {
-      @include flex(row, space-between, center);
-      width: 94%;
+    .mask {
+      width: 100%;
+      @include flex(column, space-between, center);
+      min-height: 25px;
+  
+      &.isNotValid {
+        border: 1px solid $red_lite;
+      }
   
       .form-input {
-        width: 80%;
+        width: 94%;
         border: none;
+        min-height: 25px;
   
+      
         &:focus {
           outline: none;
         }
-      }
-  
-      .eye {
-        display: flex;
-        width: 20px;
-        height: 20px;
-        background-color: transparent;
       }
     }
   }
@@ -52,4 +57,3 @@
     }
   }
 }
-

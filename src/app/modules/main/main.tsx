@@ -17,7 +17,7 @@ import { inputStyle } from '../../shared/consts/ui-style';
 import { useDebounce } from '../../core/hooks/debounce';
 import { Sort } from '../../shared/consts/sort';
 import { DynamicKeyModels } from '../../core/models/dynamic.key.models';
-import InputSearch from '../../shared/UI/input-search/input-search';
+import Input from '../../shared/UI/input/input';
 
 const Main: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -78,7 +78,7 @@ const Main: React.FC = () => {
           />
         }
         input={
-          <InputSearch 
+          <Input 
             placeholder='Search Movie' 
             onChange={handleSearchMovie}
             onFocus={() => dispatch(stopAction(false))}
