@@ -16,4 +16,4 @@ const emailValid = 'Please enter a valid email';
 
 const Password = 'The password must contain from 8 to 20 characters.';
 
-export {deleteFavoritesText, passwordMassages, confirmPassword, emailValid};
+export {deleteFavoritesText, passwordMassages, confirmPassword, emailValid, Password};

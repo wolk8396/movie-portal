@@ -5,13 +5,13 @@
 .container-input {
   @include flex(column, normal, normal);
   width: 100%;
-
+  background-color: transparent;
 
   &__container {
     @include flex(column, normal, normal);
     max-width: 500px;
     border-radius: 20px;
-    border: '1px solid #cccccc';
+    border: 1px solid #cccccc;
 
     &.isNotValid {
       border: 1px solid $red_lite;
@@ -27,11 +27,8 @@
       width: 100%;
       @include flex(column, space-between, center);
       min-height: 25px;
-  
-      &.isNotValid {
-        border: 1px solid $red_lite;
-      }
-  
+
+
       .form-input {
         width: 94%;
         border: none;
@@ -48,12 +45,23 @@
   .validMessage {
     background-color: transparent;
     width: 100%;
-    margin-top: .3rem;
+    margin-top: .2rem;
 
     .requirements {
       @include fonts('Montserrat', .7rem,  $red_lite, 500);
-      margin-left: 1rem;
+      margin-left: 0.5rem;
+      background-color: transparent;
 
     }
+  }
+}
+
+@media(max-width: 500px) {
+  .container-input 
+  .validMessage {
+    .requirements {
+      font-size: .6rem;
+    }
+  
   }
 }

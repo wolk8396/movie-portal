@@ -16,10 +16,9 @@ import { useCreateUUID } from '../../core/hooks/createUiudHooks';
 
 const SignUP: React.FC = () => {
   const {requirementsMassages, errorMassages} = confirmPassword
-  const {uuid} = useCreateUUID()
+  const {uuid} = useCreateUUID();
   const { allValuePassword,  checkPassWord} = useHelperPassWordValidator();
   const [errorMessages, setErrorMessages] = useState<string>(requirementsMassages);
-
   const [notValid, setNotValid] = useState<FormDataValidModel>({
     email: false,
     password: false,
@@ -129,9 +128,8 @@ const SignUP: React.FC = () => {
     cloneValid.email = value ? 
       cloneValid.email = false: cloneValid.email = true;
     setNotValid(cloneValid);
-  }
+  };
 
- 
   const onHandlerEmail= (e: ChangeEvent<HTMLInputElement>) => { 
     const cloneDate = Object.assign({}, formData);
     cloneDate.email = e.target.value;
@@ -146,13 +144,14 @@ const SignUP: React.FC = () => {
         titleLink={'Now Sign In'}
         onSubmit={onSubmit}
         styleForms={{height: '500px'}}
+        classForm='sign_up'
       >
         <Input 
           placeholder='Email' 
           notValid={notValid.email}
           onChange={onHandlerEmail}
           onBlur={onHandlerEmailOnBlur}
-          styleConf={{padding:'2.2% 2%', borderRadius: "20px", border: '1px solid #cccccc',}}
+          styleConf={{padding:'2.2% 2%', borderRadius: "20px"}}
           styles={{maxWidth: '100%'}}
         >
           {notValid.email && <span className='requirements'>{emailValid}</span>}

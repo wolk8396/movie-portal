@@ -1,0 +1,18 @@
+.container-forms {
+  &.sing_in {
+    .container-forms__form {
+
+      .container-input {
+        margin-top: 4rem;
+      }
+      .container-password {
+        margin-top: 1.5rem;
+      }
+    
+      .btn {
+        margin-top: 8rem;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}

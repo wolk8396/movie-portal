@@ -5,7 +5,7 @@
 
 .container-forms {
   @include flex(column, space-between, center);
-  width: 98%;
+  width: 100%;
   max-width: 34rem;
   border-radius: 10px;
   background-color: #f8f8f8;
@@ -14,7 +14,7 @@
   margin-top: 1rem;
   margin: 0 auto;
   margin-top: 8rem;
-  background-color: transparent;
+  margin-bottom: 1rem;
 
   &__title {
     @include fonts('Montserrat', 1.3rem, $black, 700);
@@ -22,8 +22,9 @@
   }
 
   &__form {
-    @include flex(column, space-between, center);
+    @include flex(column, flex-start, center);
     width: 100%;
+    background-color: transparent;
   }
 
   &__link {

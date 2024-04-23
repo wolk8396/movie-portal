@@ -26,7 +26,7 @@ const Input: React.FC<InputProps> = (props) => {
   }, [notValid]);
   
   return (
-    <div className='container-input'>
+    <div className='container-input' style={styles}>
       <div className={wrapperInput} style={styles}>
         <div className='mask' style={styleConf}>
           <input

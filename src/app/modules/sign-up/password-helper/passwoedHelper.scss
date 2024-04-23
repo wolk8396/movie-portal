@@ -11,24 +11,34 @@
 }
 
 .hint-password {
-  @include flex(row, space-around, center);
+  @include flex(row, flex-start, center);
   @include UL();
   @include fonts('Montserrat', .7rem,  $red_lite, 500);
-  width: 81%;
-  min-width: 320px;
+  width: 100%;
   user-select: none;
   background-color: transparent;
-  margin-left: .3rem;
+  margin-left: 0.4rem;
+  margin-top: 0.3rem;
+  // margin-left: .4rem;
 
   .hints {
     @include fonts('Montserrat', .7rem, $black, 500);
     list-style-type: none;
     background-color: transparent;
+    margin-left: .4rem;
  
-
     &.isActive {
       color: $green;
     }
+  }
+}
 
+@media(max-width: 500px) {
+  .hint-password {
+    font-size: .6rem;
+
+    .hints {
+      font-size: .6rem;
+    }
   }
 }

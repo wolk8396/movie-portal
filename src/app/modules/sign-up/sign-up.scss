@@ -1,15 +1,20 @@
-.container-forms
-.container-forms__form {
+.container-forms {
+  &.sign_up {
+    .container-forms__form {
 
-  .container-input {
-    margin-top: 1rem;
-  }
-  .container-password {
-    margin-top: 1rem;
-  }
-
-  .btn {
-    margin-top: 4rem;
-    margin-bottom: 2rem;
+      .container-input {
+        margin-top: 1rem;
+        margin-bottom: 1.1rem;
+      }
+      .container-password {
+        margin-top: 1rem;
+        margin-bottom: 1.1rem;
+      }
+    
+      .btn {
+        margin-top: 3rem;
+      }
+    }
   }
 }
+
