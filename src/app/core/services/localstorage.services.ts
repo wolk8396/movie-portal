@@ -1,7 +1,16 @@
+import { FormDataModel } from "../models/FormData.models";
 import { MapDateFilms } from "../models/movie.models";
 
 const getItems = (): MapDateFilms[] => {
   return JSON.parse(localStorage.getItem('films') || '[]');
+}
+
+const getUser = (): FormDataModel => {
+  return JSON.parse(localStorage.getItem('user') || 'null');
+}
+
+const setUsers = (user: FormDataModel): void => {
+  localStorage.setItem('user', JSON.stringify(user));
 }
 
 const setItems = (items: MapDateFilms): void => {
@@ -15,4 +24,4 @@ const removeItems = (items: MapDateFilms): void => {
   localStorage.setItem('films', JSON.stringify(films));
 };
 
-export {setItems, removeItems, getItems};
+export {setItems, removeItems, getItems, setUsers, getUser};

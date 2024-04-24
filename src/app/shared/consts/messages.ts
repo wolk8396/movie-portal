@@ -16,4 +16,17 @@ const emailValid = 'Please enter a valid email';
 
 const Password = 'The password must contain from 8 to 20 characters.';
 
-export {deleteFavoritesText, passwordMassages, confirmPassword, emailValid, Password};
+const singUpError = 'the email exists in the system';
+const notifications = 'Please log in or register';
+const singInError = 'Email or Password is incorrect';
+
+export {
+  deleteFavoritesText, 
+  passwordMassages, 
+  confirmPassword, 
+  emailValid, 
+  Password, 
+  singUpError,
+  notifications,
+  singInError
+};

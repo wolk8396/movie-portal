@@ -9,13 +9,24 @@ import { useHelperPassWordValidator } from '../../core/hooks/validatorHook';
 import HelperPassword from './password-helper/passwordHelper';
 import Button from '../../shared/UI/button/button';
 import { FormDataModel, FormDataValidModel } from '../../core/models/FormData.models';
-import { confirmPassword, emailValid } from '../../shared/consts/messages';
+import { confirmPassword, emailValid, singUpError } from '../../shared/consts/messages';
 import Input from '../../shared/UI/input/input';
 import { emailRgx } from '../../shared/consts/regex-email';
 import { useCreateUUID } from '../../core/hooks/createUiudHooks';
+import { useAppDispatch, useAppSelector } from '../../redux/store';
+import { fetchUserRegister } from '../../redux/actions/registrationAsyncThunk';
+import { setUsers } from '../../core/services/localstorage.services';
+import { KEY_SIGN_UP } from '../../redux/slices/registerSlice';
+import { ResetState } from '../../redux/actions/ResetState';
+import SinnerBtn from '../../shared/UI/spinner-btn/spinner-btn';
+import { useNavigate } from 'react-router-dom';
+
 
 const SignUP: React.FC = () => {
-  const {requirementsMassages, errorMassages} = confirmPassword
+  const {requirementsMassages, errorMassages} = confirmPassword;
+  const {isSuccess, isLoading, isError, date} = useAppSelector(state => state[KEY_SIGN_UP]);
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
   const {uuid} = useCreateUUID();
   const { allValuePassword,  checkPassWord} = useHelperPassWordValidator();
   const [errorMessages, setErrorMessages] = useState<string>(requirementsMassages);
@@ -28,7 +39,6 @@ const SignUP: React.FC = () => {
     email: '',
     password: '',
     confPassWord: '',
-    uuid: uuid,
   });
 
   const onHelperOnBlurPassword = () => {
@@ -36,6 +46,18 @@ const SignUP: React.FC = () => {
     cloneValid.password = !allValuePassword ? true : false;
     setNotValid(cloneValid);
   }
+
+  useEffect(() => {
+    if (typeof date !== 'undefined' && isSuccess) {
+      setUsers(date);
+      navigate('/')
+    };
+
+    return () => {
+      dispatch(ResetState());
+    }
+
+  }, [date, isSuccess]);
 
   useEffect(() => {
     if (!!formData.password) {
@@ -99,8 +121,10 @@ const SignUP: React.FC = () => {
     const clone = {...notValid};
     const validEmail = emailRgx.test(formData.email);
     if (allValuePassword && formData.password === formData.confPassWord && validEmail) {
-      console.log(formData);
+      formData.uuid = uuid;
+      dispatch(fetchUserRegister(formData));
     };
+
     onCheckValid(clone);
   }
 
@@ -180,15 +204,23 @@ const SignUP: React.FC = () => {
         >
           {notValid.confPassWord && <span className='requirements'>{errorMessages}</span>}
         </InputPassWord>
+       {isError && <span className='message-error'>{singUpError}</span>}
         <Button 
           title={'Sign Up'} 
+          isLoading={isLoading}
           type='submit'
-          className={'green'}
+          className={isLoading ? 'pink' : 'green'}
           style={{maxWidth: '100%', padding: '0.6rem 0'}}
-        />
+        >
+          <SinnerBtn/>
+        </Button>
       </ContainerForms>
     </>
   )
 };
 
 export default SignUP;
+
+
+
+

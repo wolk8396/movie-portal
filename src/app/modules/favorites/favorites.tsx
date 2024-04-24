@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import './favorites.scss'
-import { getItems, removeItems } from '../../core/services/localstorage.services';
+import { getItems, getUser, removeItems } from '../../core/services/localstorage.services';
 import { MapDateFilms } from '../../core/models/movie.models';
 import Cart from '../../shared/UI/cart/cart';
 import NavTitle from '../../shared/UI/title-cart/nav-title';
@@ -10,11 +10,18 @@ import Button from '../../shared/UI/button/button';
 import Confirmation from '../../shared/UI/confirmation/confirmation';
 import Dialog from '../../shared/UI/dialog/dialog';
 import { deleteFavoritesText } from '../../shared/consts/messages';
+import { useNavigate } from 'react-router-dom';
 
 const Favorites: React.FC = () => {
   const [items, setItems] = useState<MapDateFilms[]>([]);
   const [open, setOpen] = useState<boolean>(false);
   const [item, setItem] = useState<MapDateFilms>();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+   const authUser =  getUser();
+   if(!authUser) navigate('/');
+	}, []);
 
   const onItem = (item: MapDateFilms) => {
     setItem(item);

@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useEffect, useState } from 'react';
+import React, { ChangeEvent, useCallback, useEffect, useState } from 'react';
 
 import './input-password.scss'
 import { DynamicKeyModels } from '../../../core/models/dynamic.key.models';
@@ -23,7 +23,8 @@ const InputPassWord: React.FC<InputPassWord> = ({styleMask, label, placeholder, 
   const wrapperInput = classNames('input-password', {isNotValid: error})
   const [type, setType] = useState<string>('password');
 
-  const onHandlerEye = () => {
+  const onHandlerEye = (e:React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault()
     setShowPassword(!showPassword);
     showPassword ? setType('text') : setType('password');
   };

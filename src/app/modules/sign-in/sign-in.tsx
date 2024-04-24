@@ -7,10 +7,19 @@ import InputPassWord from '../../shared/UI/input-password/input-password';
 import Button from '../../shared/UI/button/button';
 import { FormDataModel, FormDataValidModel } from '../../core/models/FormData.models';
 import { emailRgx } from '../../shared/consts/regex-email';
-import { Password, emailValid } from '../../shared/consts/messages';
+import { Password, emailValid, singInError } from '../../shared/consts/messages';
 import { PasswordRegex } from '../../shared/consts/regex-password';
+import { useAppDispatch, useAppSelector } from '../../redux/store';
+import { useNavigate } from 'react-router-dom';
+import { fetchAuthUser } from '../../redux/actions/authAction';
+import SinnerBtn from '../../shared/UI/spinner-btn/spinner-btn';
+import { KEY_AUTH } from '../../redux/slices/authUserSlice';
+import { setUsers } from '../../core/services/localstorage.services';
+import { ResetState } from '../../redux/actions/ResetState';
 
 const SignIN: React.FC = () => {
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
   const [formData, setFormData] = useState<FormDataModel>({
     email: '',
     password: '',
@@ -19,6 +28,22 @@ const SignIN: React.FC = () => {
     email: false,
     password: false,
   });
+  const {isSuccess, isLoading, isError, date} = useAppSelector(state => state[KEY_AUTH]);
+
+
+  useEffect(() => {
+    console.log(isSuccess, date);
+    
+    if (typeof date !== 'undefined' && isSuccess) {
+      setUsers(date);
+      navigate(`/${PATHNAMES.favorites}`);
+    };
+
+    return () => {
+      dispatch(ResetState())
+    }
+
+  }, [date, isSuccess]);
 
   const onCheckValidPassWord = () => {
     const cloneValid = {...notValid};
@@ -75,9 +100,8 @@ const SignIN: React.FC = () => {
     event.preventDefault();
     const fieldValid = onCheckValidField().every(Boolean);
     if (fieldValid) {
-      console.log('yes', formData);
-    }
-    
+      dispatch(fetchAuthUser(formData));
+    };
   };
 
   return (
@@ -109,12 +133,16 @@ const SignIN: React.FC = () => {
           >
             {notValid.password && <span className='requirements'>{Password}</span>}
           </InputPassWord>
+          {isError && <span className='message-error'>{singInError}</span>}
           <Button 
+            isLoading={isLoading}
             title={'Sign In'} 
             type='submit'
-            className={'green'}
+            className={isLoading ? 'pink' : 'green'}
             style={{maxWidth: '100%', padding: '0.6rem 0'}}
-          />
+          >
+            <SinnerBtn/>
+          </Button>
       </ContainerForms>
     </>
   )
