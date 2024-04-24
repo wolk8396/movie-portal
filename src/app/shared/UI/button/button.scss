@@ -20,5 +20,12 @@
     background-color: #00f600;
     border: none;
   }
+
+  &.isLoading {
+    order: 1px solid #FF48F8;
+    color: #ff48f8;
+    background-color: transparent;
+    line-height: 100%;
+  }
 }
 

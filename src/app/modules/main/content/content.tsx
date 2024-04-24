@@ -1,15 +1,17 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-import './content.scss'
+import './content.scss';
+
 import { MapDateFilms } from '../../../core/models/movie.models';
 import Cart from '../../../shared/UI/cart/cart';
 import { PATHNAMES } from '../../../shared/consts/routes';
 import NavTitle from '../../../shared/UI/title-cart/nav-title';
 import Button from '../../../shared/UI/button/button';
 import Dialog from '../../../shared/UI/dialog/dialog';
-import { getItems, removeItems, setItems } from '../../../core/services/localstorage.services';
-import Confirmation from '../../../shared/UI/confirmation/confirmation';
+import { getItems, getUser, removeItems, setItems } from '../../../core/services/localstorage.services';
 import { deleteFavoritesText } from '../../../shared/consts/messages';
+import ConfirmationRemoveItem from '../../../shared/UI/confirmationRemoveItem/confirmationRemoveItem';
+import ConfirmationLogIn from '../../../shared/UI/confirmation-LogIn/Confirmation-logIn';
 
 interface ContentProps {
   date: MapDateFilms[];
@@ -19,53 +21,67 @@ const Content: React.FC<ContentProps> = ({date}) => {
   const [open, setOpen] = useState<boolean>(false);
   const [update, setUpdate] =  useState<MapDateFilms[]>(date);
   const [item, setItem] = useState<MapDateFilms>();
-  const [message, setMessage] = useState<string>(deleteFavoritesText);
+  const [uid, setUid] = useState<string | null>(null);
+
+  const onUpdate = (item: MapDateFilms, value: boolean) => {
+    const updateItems = [...update].map(items => {
+      return {
+        ...items,
+        favorites: item.kinopoiskId === items.kinopoiskId ? value: items.favorites
+      }
+    });
+    setUpdate(updateItems);
+  }
  
   const onAddCart = (item: MapDateFilms) => {
-    const findItem =  getItems().find(film => film.kinopoiskId === item.kinopoiskId);
-    setItem(item);
-    findItem ? setOpen(true) : setItems(item);
-    const setFavorites = [...update].map(film => ({...film, favorites: item.kinopoiskId === item.id}));
-    setUpdate(setFavorites);
+    if (uid) {
+      const items = getItems(uid);
+      const findItem =  items?.favorites.find(film => film.kinopoiskId === item.kinopoiskId);
+      findItem ? setOpen(true) : setItems(item, uid);
+      !findItem ? onUpdate(item, true) : setItem(item);
+    } else setOpen(true);
   };
 
-  const onFindId = (id: number): boolean  => {
-    const isId = getItems().find(film => film.kinopoiskId === id)?.kinopoiskId;
-    if (typeof isId !== 'undefined') {
-      return id === isId;
-    } 
-    return false
-  }
-
   const Removefavorites = () => {
-    const findItem =  getItems().find(film => film.kinopoiskId === item?.kinopoiskId);
-    if (findItem) removeItems(findItem);
+    if (item?.kinopoiskId && uid) {
+      removeItems(item?.kinopoiskId, uid);
+      onUpdate(item, false);
+    };
     setOpen(false);
   }
 
+  const getIdFilms = (date: MapDateFilms[]) => {
+    if (uid) {
+      const items = getItems(uid);
+      const ids = items?.favorites.reduce((acc: number[], item) => {
+        acc.push(item.kinopoiskId)
+        return acc;
+      }, []);
+  
+      const update = [...date].map(item => {
+        return {
+          ...item,
+          favorites: ids?.includes(item.kinopoiskId)
+        }
+      });
+      setUpdate(update);
+    }else  setUpdate(date);
+  }
+
   useEffect(() => {
-    if (!!date.length) {
-      setUpdate(date)
-    }
+    const users = getUser();
+    users && users.uuid ? setUid(users.uuid) : setUid(null);
+    if (!!date.length) getIdFilms(date);
   }, [date])
 
   return (
     <>
     <Dialog open={open} close={setOpen} style={{maxWidth: '320px'}}>
-      <Confirmation messages={message}>
-        <Button 
-          title={'Close'} 
-          className={'pink'}
-          onClick={() => setOpen(false)}
-          style={{maxWidth: '100px', padding: '0.4rem 0'}}
-        />
-        <Button 
-          title={'Ok'} 
-          className={'pink'}
-          onClick={() => Removefavorites()}
-          style={{maxWidth: '100px', padding: '0.6rem 0'}}
-        />
-      </Confirmation>
+      {uid ? 
+        ( 
+        <ConfirmationRemoveItem open={() => setOpen(false)}  remove={Removefavorites}/>
+        ) : <ConfirmationLogIn/>
+      }
     </Dialog>
     <div className='content'>
       <div className='content__view'>
@@ -83,8 +99,8 @@ const Content: React.FC<ContentProps> = ({date}) => {
               }
             >
               <Button 
-                title={!onFindId(item.kinopoiskId) || item.favorites ? 'Add to favorites': "Remove from favorites"} 
-                className={!onFindId(item.kinopoiskId) || item.favorites ? 'green' : 'pink'}
+                title={!item.favorites ? 'Add to favorites': "Remove from favorites"} 
+                className={!item.favorites ? 'green' : 'pink'}
                 onClick={() => onAddCart(item)}
                 style={{maxWidth: '210px', padding: '0.6rem 0'}}
               />

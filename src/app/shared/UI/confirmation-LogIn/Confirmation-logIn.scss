@@ -1,0 +1,36 @@
+@import '../../../../styles/color.scss';
+@import '../../../../styles/fonts.scss';
+@import '../../../../styles/mixins.scss';
+ 
+.confirmation-logIn {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+
+  &__title {
+    @include fonts('Montserrat', 1rem, $black, 500);
+  }
+
+  &__message {
+    @include fonts('Montserrat', 1.2rem, $black, 500);
+    text-align: center;
+    margin-top: 1.2rem;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-top: 2rem;
+    width: 100%;
+  }
+}
+
+ @media(max-width: 500px) {
+  .confirmation-logIn {
+    &__message {
+      font-size: 1rem;
+    }
+  }
+ }

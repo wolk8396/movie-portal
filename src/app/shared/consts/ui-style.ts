@@ -2,7 +2,6 @@ import { DynamicKeyModels } from "../../core/models/dynamic.key.models";
 
 const inputStyle: DynamicKeyModels = {
   borderRadius: '90px',
-  border: '1px solid #cccccc',
   fontFamily: 'Montserrat',
   fontWeight: '400',
   fontSize: '1rem',

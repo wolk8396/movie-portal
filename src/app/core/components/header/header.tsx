@@ -6,6 +6,7 @@ import NavigationHeader from './navigation/navigation'
 import { nav_header } from '../../../shared/consts/const-nav';
 import { logo } from '../../../shared/consts/image';
 import { useNavigate } from 'react-router-dom';
+import Button from '../../../shared/UI/button/button';
 
 const Header: React.FC = () => {
   const [open, setOpen] = useState<boolean>(false);
@@ -16,7 +17,6 @@ const Header: React.FC = () => {
   const header = classNames('navigation', {isActive: open});
   const onMenu = () => setOpen(!open); 
 
- 
   return (
   <nav className={header}>
     <div className="container-header">
@@ -26,14 +26,14 @@ const Header: React.FC = () => {
         </div>
         <div className={nav} onClick={onMenu}>
           <nav className={links}>
-          <NavigationHeader
-            classNameUl="navbar-nav-yocalab"
-            classNameLi="item-link"
-            data={nav_header}
-            classNameLink="link"
-            open={open}
-            title=''
-            />
+            <NavigationHeader
+              classNameUl="navbar-nav-yocalab"
+              classNameLi="item-link"
+              data={nav_header}
+              classNameLink="link"
+              open={open}
+              title=''
+              />
           </nav>
         </div>
       </div>

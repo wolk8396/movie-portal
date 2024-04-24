@@ -28,7 +28,6 @@ export const movieApi = createApi({
     search: builder.query<MovieModel, { text: string, page:number}>({
       query: ({ text, page}) => {
         const isText = text.split(' ').join('%20');
-        console.log(isText);
         return `?order=RATING&type=ALL&ratingFrom=0&ratingTo=10&yearFrom=1950&yearTo=2024&keyword=${text}&page=${page}`
       },
       // transformResponse(res:MovieModel, meta: FetchBaseQueryMeta | undefined, arg) {
