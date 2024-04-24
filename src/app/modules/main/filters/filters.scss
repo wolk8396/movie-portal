@@ -67,7 +67,6 @@
       }
     }
   }
-
 }
 
 @media(max-width: 800px) {
@@ -101,6 +100,7 @@
 
           .container-input {
             display: block;
+            max-width: 500px;
           }
           .container-btn {
             display: flex;

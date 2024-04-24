@@ -13,11 +13,11 @@ import { Collection } from '../../shared/consts/collection';
 import { MapDateFilms, MovieItem, MovieModel } from '../../core/models/movie.models';
 import { useAppDispatch } from '../../redux/store';
 import { stopAction } from '../../redux/actions/loading';
-import Input from '../../shared/UI/input/input';
 import { inputStyle } from '../../shared/consts/ui-style';
 import { useDebounce } from '../../core/hooks/debounce';
 import { Sort } from '../../shared/consts/sort';
 import { DynamicKeyModels } from '../../core/models/dynamic.key.models';
+import Input from '../../shared/UI/input/input';
 
 const Main: React.FC = () => {
   const dispatch = useAppDispatch();

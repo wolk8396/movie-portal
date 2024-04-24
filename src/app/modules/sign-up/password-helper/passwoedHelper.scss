@@ -1,0 +1,44 @@
+@import '../../../../styles/color.scss';
+@import '../../../../styles/fonts.scss';
+@import '../../../../styles/mixins.scss';
+
+.hint-password.isValid {
+  color: $black;
+}
+
+.hint-password.isHidden {
+  display: none;
+}
+
+.hint-password {
+  @include flex(row, flex-start, center);
+  @include UL();
+  @include fonts('Montserrat', .7rem,  $red_lite, 500);
+  width: 100%;
+  user-select: none;
+  background-color: transparent;
+  margin-left: 0.4rem;
+  margin-top: 0.3rem;
+  // margin-left: .4rem;
+
+  .hints {
+    @include fonts('Montserrat', .7rem, $black, 500);
+    list-style-type: none;
+    background-color: transparent;
+    margin-left: .4rem;
+ 
+    &.isActive {
+      color: $green;
+    }
+  }
+}
+
+@media(max-width: 500px) {
+  .hint-password {
+    font-size: .6rem;
+
+    .hints {
+      font-size: .6rem;
+    }
+  }
+}
