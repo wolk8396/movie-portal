@@ -30,7 +30,6 @@
       .close::after {
         position: relative;
         display: block;
-        // left: 0;
         width: 100%;
         height: 2px;
         background-color: $green;
@@ -83,11 +82,11 @@
       
 
       &__title {
-        @include fonts('Montserrat', .8rem, $lite_pink, 500);
+        @include fonts('Montserrat', 1rem, $lite_pink, 500);
       }
 
       &__item {
-        @include fonts('Montserrat', .8rem, $black, 400);
+        @include fonts('Montserrat', .9rem, $black, 400);
         max-width: 82%;
       }
     }
@@ -97,8 +96,17 @@
   &__description {
     @include fonts('Montserrat', 1rem, $black, 500);
     margin: 1rem 0;
-    width: 98%;
+    width: 50%;
   }
+}
+
+@media(max-width: 1000px) {
+  .short-story {
+    &__description {
+      width: 100%;
+    }
+  }
+
 }
 
 @media(max-width: 500px) {

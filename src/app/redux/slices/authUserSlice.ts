@@ -5,7 +5,6 @@ import { fetchAuthUser } from "../actions/authAction";
 import { ResetState } from "../actions/ResetState";
 import { KEY_SIGN_UP } from "./registerSlice";
 
-
 const KEY_AUTH = 'auth';
 
 type DynamicKeySingUp = Reducer<IUserRegister, Action> | FormDataModel | boolean | undefined;
@@ -32,8 +31,6 @@ const authUserSlice = createSlice({
       state.isSuccess = false;
 		});
 		builder.addCase(fetchAuthUser.fulfilled.toString(), (state: IUserRegister, action: PayloadAction<FormDataModel>) => {
-			console.log(action);
-      
       state.isLoading = false;
       state.isError = false;
       state.isSuccess = true;

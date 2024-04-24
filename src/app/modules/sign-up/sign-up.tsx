@@ -210,7 +210,7 @@ const SignUP: React.FC = () => {
           isLoading={isLoading}
           type='submit'
           className={isLoading ? 'pink' : 'green'}
-          style={{maxWidth: '100%', padding: '0.6rem 0'}}
+          style={{maxWidth: '93%', padding: '0.6rem 0'}}
         >
           <SinnerBtn/>
         </Button>

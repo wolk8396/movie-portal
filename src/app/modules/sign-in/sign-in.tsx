@@ -32,8 +32,6 @@ const SignIN: React.FC = () => {
 
 
   useEffect(() => {
-    console.log(isSuccess, date);
-    
     if (typeof date !== 'undefined' && isSuccess) {
       setUsers(date);
       navigate(`/${PATHNAMES.favorites}`);
@@ -139,7 +137,7 @@ const SignIN: React.FC = () => {
             title={'Sign In'} 
             type='submit'
             className={isLoading ? 'pink' : 'green'}
-            style={{maxWidth: '100%', padding: '0.6rem 0'}}
+            style={{maxWidth: '93', padding: '0.6rem 0'}}
           >
             <SinnerBtn/>
           </Button>

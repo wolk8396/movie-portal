@@ -15,6 +15,7 @@
   margin: 0 auto;
   margin-top: 8rem;
   margin-bottom: 1rem;
+  position: relative;
 
   &__title {
     @include fonts('Montserrat', 1.3rem, $black, 700);
@@ -30,6 +31,8 @@
   .message-error {
     @include fonts('Montserrat', 1rem,  $red_lite, 500);
     background-color: transparent;
+    position: absolute;
+    bottom: 27%;
   }
 
   &__link {
