@@ -8,7 +8,6 @@ interface ImageProps {
 
 const Images: React.FC<ImageProps> = ({src, alt, children}) => {
   const {url, loading} = useLoadingImage(src);
-
   return (
     <>
       {!loading && <img src={url} alt={alt} />}

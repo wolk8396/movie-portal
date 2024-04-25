@@ -12,12 +12,15 @@ import { getItems, getUser, removeItems, setItems } from '../../../core/services
 import { deleteFavoritesText } from '../../../shared/consts/messages';
 import ConfirmationRemoveItem from '../../../shared/UI/confirmationRemoveItem/confirmationRemoveItem';
 import ConfirmationLogIn from '../../../shared/UI/confirmation-LogIn/Confirmation-logIn';
+import { useAppSelector } from '../../../redux/store';
+import { KEY_LOG_AUTH } from '../../../redux/slices/logSlice';
 
 interface ContentProps {
   date: MapDateFilms[];
 }
 
 const Content: React.FC<ContentProps> = ({date}) => {
+  const {logOut} = useAppSelector(state => state[KEY_LOG_AUTH]);
   const [open, setOpen] = useState<boolean>(false);
   const [update, setUpdate] =  useState<MapDateFilms[]>(date);
   const [item, setItem] = useState<MapDateFilms>();
@@ -72,7 +75,15 @@ const Content: React.FC<ContentProps> = ({date}) => {
     const users = getUser();
     users && users.uuid ? setUid(users.uuid) : setUid(null);
     if (!!date.length) getIdFilms(date);
-  }, [date])
+  }, [date]);
+
+  useEffect(() => {
+    if (logOut) {
+      const updateItems = [...update].map(items =>({...items, favorites: false}));
+      setUpdate(updateItems);
+      setUid(null);
+    }
+  }, [logOut]);
 
   return (
     <>

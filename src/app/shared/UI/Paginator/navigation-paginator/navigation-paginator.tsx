@@ -87,7 +87,7 @@ const NavigationPaginator: React.FC<NavigationPaginatorProps> = props => {
   const onSetActive = (currentPage: number) => {
     return classNames('btn-paginator', {isActive: page === currentPage})
   };
-
+  
   const handleChangePage = (currentPage: number) => {
     const findIndex = update.findIndex(item => currentPage === item);
     if (currentPage === 1) {
