@@ -50,7 +50,7 @@ const Paginator = ({ totalPages, onPageChange }: PaginatorProps) => {
         <NavigationPaginator
           totalPages={totalPages}
           page={page}
-          updatePage={(page: number) => onUpdate(page)} />
+          updatePage={onUpdate} />
         <button
           className='paginator__bot-navigation'
           onClick={onIncrease}

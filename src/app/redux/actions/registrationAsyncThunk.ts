@@ -2,7 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { FormDataModel } from "../../core/models/FormData.models";
 import { ApiSignUp } from "../../core/api/mock-sign-up.api";
 
-export const fetchUserRegister = createAsyncThunk('userAuth/fetchRegister', async (userData: FormDataModel, thunkAPI) => {
+export const fetchUserRegister = createAsyncThunk('userAuth/sing_up', async (userData: FormDataModel, thunkAPI) => {
 	const userInfo: FormDataModel = {
 		password: userData.password,
 		email: userData.email,

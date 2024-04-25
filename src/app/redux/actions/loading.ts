@@ -9,6 +9,7 @@ function loading(loading: boolean, error: boolean) {
     }
   }
 });
+
 export const stopAction = createAction('STOP_LOADING', 
 function stopAction(action: boolean) {
   return {

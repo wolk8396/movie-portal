@@ -10,4 +10,4 @@ const PATHNAMES: DynamicKeyModels = {
   reject:'*',
 };
 
-export { PATHNAMES };
+export { PATHNAMES }; 

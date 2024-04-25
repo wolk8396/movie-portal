@@ -137,7 +137,7 @@ const SignIN: React.FC = () => {
             title={'Sign In'} 
             type='submit'
             className={isLoading ? 'pink' : 'green'}
-            style={{maxWidth: '93', padding: '0.6rem 0'}}
+            style={{maxWidth: '93%', padding: '0.6rem 0'}}
           >
             <SinnerBtn/>
           </Button>
