@@ -1,12 +1,11 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 export const useLoadingImage = (src: string): { url: string | undefined; loading: boolean }  => {
   const [url, setUrl] = useState<string | undefined>(undefined);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const loadImage = async () => {
-      const img = new Image();
+  const loadImage = useCallback(async () => {
+    const img = new Image();
       img.src = src;
       try {
         setUrl(src);
@@ -17,10 +16,12 @@ export const useLoadingImage = (src: string): { url: string | undefined; loading
         setUrl(src);
         setLoading(false);
       }
-    };
+    
+	}, [url]);
 
+  useEffect(() => {
     loadImage();
-  }, [src]);
+  }, []);
 
   return { url, loading };
 }

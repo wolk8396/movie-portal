@@ -12,6 +12,8 @@ import Dialog from '../../shared/UI/dialog/dialog';
 import ConfirmationRemoveItem from '../../shared/UI/confirmationRemoveItem/confirmationRemoveItem';
 import ConfirmationLogIn from '../../shared/UI/confirmation-LogIn/Confirmation-logIn';
 import { MapDateFilms } from '../../core/models/movie.models';
+import { useAppSelector } from '../../redux/store';
+import { KEY_LOG_AUTH } from '../../redux/slices/logSlice';
 
 const Film: React.FC = () => {
   const params = useParams();
@@ -21,6 +23,7 @@ const Film: React.FC = () => {
   const [uid, setUid] = useState<string | null>(null);
   const [open, setOpen] = useState<boolean>(false);
   const [item, setItem] = useState<MapDateFilms>();
+  const {logOut} = useAppSelector(state => state[KEY_LOG_AUTH]);
 
   const onFindFilm = (id: number) => {
     const items = getItems(uid);
@@ -56,7 +59,17 @@ const Film: React.FC = () => {
       dateFilm[0].favorites = true;
     }
     setItem(dateFilm[0]);
-  }, [dateFilm])
+  }, [dateFilm]);
+
+  useEffect(() => {
+    if (logOut && item?.favorites) {
+      const cloneItem = {...item};
+      cloneItem.favorites = false;
+      setUid(null);
+      setItem(cloneItem);
+    }
+
+  }, [logOut])
 
   return (
     <>

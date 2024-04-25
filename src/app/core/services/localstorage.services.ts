@@ -20,6 +20,10 @@ const setUsers = (user: FormDataModel): void => {
   localStorage.setItem('user', JSON.stringify(user));
 }
 
+const LogOutAuth = () => {
+  localStorage.removeItem('user');
+}
+
 const setItems = (items: MapDateFilms, uid: string): void => {
   const films: FavoritesModels[] = JSON.parse(localStorage.getItem('films') || '[]');
   const find = films.find(item => item.uuid === uid)
@@ -58,4 +62,4 @@ const removeItems = (id: number, uid: string): void => {
   }
 };
 
-export {setItems, removeItems, getItems, setUsers, getUser};
+export {setItems, removeItems, getItems, setUsers, getUser, LogOutAuth};

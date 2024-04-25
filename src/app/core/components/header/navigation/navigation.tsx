@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { NavModel } from "../../../models/nav.models";
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import classNames from "classnames";
 
 interface LinksProps {
@@ -10,11 +10,23 @@ interface LinksProps {
 	classNameLink: string;
 	title?: string;
   open: boolean;
+	auth?: boolean;
 }
 
 const NavigationHeader: React.FC<LinksProps> = props => {
-	const { data, classNameUl, classNameLi, classNameLink, title, open} = props;
+	const { data, classNameUl, classNameLi, classNameLink, title, open, auth} = props;
   const isActive = classNames(classNameUl, {isActive: open});
+	const [update, setUpdate] = useState<NavModel[]>(data)
+
+	// useEffect(() => {
+	// 	const updateUrl = [...update].map(item => {
+	// 		const url = item.name === 'Favorites' && auth ? item.url = 'sign-up' : item.url
+	// 		return {
+	// 			...item,
+	// 			url: url
+	// 		}
+	// 	})
+	// }, [auth])
 
 	return (
 		<ul className={isActive}>

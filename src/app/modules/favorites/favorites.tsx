@@ -9,6 +9,8 @@ import { PATHNAMES } from '../../shared/consts/routes';
 import Dialog from '../../shared/UI/dialog/dialog';
 import { useNavigate } from 'react-router-dom';
 import ConfirmationRemoveItem from '../../shared/UI/confirmationRemoveItem/confirmationRemoveItem';
+import { useAppSelector } from '../../redux/store';
+import { KEY_LOG_AUTH } from '../../redux/slices/logSlice';
 
 
 const Favorites: React.FC = () => {
@@ -20,9 +22,8 @@ const Favorites: React.FC = () => {
   useEffect(() => {
     const user = getUser();
     const favorites = getItems(user?.uuid)?.favorites;
-    if(!user) navigate('/');
+    if(!user) navigate(`/${PATHNAMES.sign_up}`);
     if (favorites) setItems(favorites);
-  
 	}, []);
 
   const onItem = (item: MapDateFilms) => {
