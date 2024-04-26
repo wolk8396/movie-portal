@@ -4,12 +4,10 @@
 
 .custom-select {
   position: relative;
-  max-width: 500px;
+  max-width: 31.25rem;
   width: 100%;
   @include fonts('Montserrat', 1rem, $black, 500);
   color: #000;
-  // z-index: 1;
-  // margin-top: 3rem;
 
   .select-button {
     width: 100%;
@@ -44,9 +42,9 @@
     background-color: #fff;
     border: 1px solid #caced1;
     border-radius: 4px;
-    padding: 10px;
-    margin-top: 10px;
-    max-height: 200px;
+    padding: .625rem;
+    margin-top: .625rem;
+    max-height: 12.5rem;
     overflow-y: auto;
     transition: 0.5s ease;
     z-index: 2;
@@ -68,7 +66,7 @@
 
       label {
         width: 100%;
-        padding: 8px 10px;
+        padding: .5rem .625rem;
         cursor: pointer;
         display: flex;
         gap: 1rem;

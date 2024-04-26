@@ -3,10 +3,7 @@
 @import '../../../../styles/mixins.scss';
  
 .confirmation-logIn {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  align-items: center;
+  @include flex(column, space-between, center);
 
   &__title {
     @include fonts('Montserrat', 1rem, $black, 500);
@@ -19,9 +16,7 @@
   }
 
   &__footer {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
+    @include flex(row, space-between, flex-start);
     margin-top: 2rem;
     width: 100%;
   }

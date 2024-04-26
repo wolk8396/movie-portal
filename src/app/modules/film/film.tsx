@@ -83,6 +83,7 @@ const Film: React.FC = () => {
       <div className='wrapper-film'>
       {!!item && 
         <Cart date={item} 
+          description={true}
           titleElement={
             <Title className={'title'} title={dateFilm[0].nameRu}/>
           }

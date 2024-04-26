@@ -3,25 +3,18 @@
 @import '../../../../styles/mixins.scss';
 
  .short-story{
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  align-items: flex-start;
+  @include flex(column, space-between, flex-start);
   filter: drop-shadow(0px 13px 9px rgba(0, 0, 0, .04));
   padding: 1rem;
   border-radius: 20px;
 
   &__header {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    flex-direction: row;
-    align-items: center;
+    @include flex(row, space-between, center);
     width: 100%;
 
     .delete-cart {
-      width: 20px;
-      height: 20px;
+      min-width: 1.25rem;
+      min-height: 1.25rem;
       .close {
         position: relative;
         display: block;
@@ -57,10 +50,8 @@
   }
 
   &__main {
-    display: flex;
-    flex-direction: row;
-    justify-content: normal;
-    margin-top: 0.5rem;
+    @include flex(row, normal, flex-start);
+    margin-top: .5rem;
     width: 100%;
 
     .poster{
@@ -74,12 +65,8 @@
     }
 
     .info {
-      display: flex;
-      justify-content: flex-start;
-      flex-direction: column;
-      margin-left: 0.2rem;
-      // width: 50%;
-      
+      @include flex(column, flex-start, flex-start);
+      margin-left: .2rem;
 
       &__title {
         @include fonts('Montserrat', 1rem, $lite_pink, 500);
@@ -106,7 +93,6 @@
       width: 100%;
     }
   }
-
 }
 
 @media(max-width: 500px) {
