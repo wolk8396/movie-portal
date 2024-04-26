@@ -1,5 +1,4 @@
 import React from 'react';
-import { MapDateFilms } from '../../../core/models/movie.models';
 
 import './button.scss';
 import { DynamicKeyModels } from '../../../core/models/dynamic.key.models';

@@ -42,7 +42,7 @@ const Collection: DynamicKeyModels[] = [
     value:'LOVE_THEME',
   },
   {
-    title:'Catastrophe Theme',
+    title:'Catastrophe',
     value:'CATASTROPHE_THEME',
   },
   {
@@ -51,4 +51,4 @@ const Collection: DynamicKeyModels[] = [
   },
 ];
 
-export { Collection }
+export { Collection };

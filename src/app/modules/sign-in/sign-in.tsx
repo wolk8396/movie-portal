@@ -1,5 +1,7 @@
 import React, { ChangeEvent, FormEvent, useEffect, useState } from 'react';
-import './sign-in.scss'
+
+import './sign-in.scss';
+
 import ContainerForms from '../../shared/UI/container-forms/container-forms';
 import { PATHNAMES } from '../../shared/consts/routes';
 import Input from '../../shared/UI/input/input';

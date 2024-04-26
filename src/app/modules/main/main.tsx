@@ -4,13 +4,12 @@ import './main.scss'
 import Paginator from '../../shared/UI/Paginator/Paginator';
 import { movieApi } from '../../core/services/movi.services';
 import Content from './content/content';
-import { Movie } from '../../shared/consts/moky';
 import { useWindowResize } from '../../core/hooks/useWindowResize';
 import { useMapDate } from '../../core/hooks/mapDateHooks';
 import Filters from './filters/filters';
 import Select from '../../shared/UI/select/select';
 import { Collection } from '../../shared/consts/collection';
-import { MapDateFilms, MovieItem, MovieModel } from '../../core/models/movie.models';
+import { MovieModel } from '../../core/models/movie.models';
 import { useAppDispatch } from '../../redux/store';
 import { stopAction } from '../../redux/actions/loading';
 import { inputStyle } from '../../shared/consts/ui-style';

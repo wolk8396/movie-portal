@@ -1,9 +1,10 @@
 import React, { ChangeEvent, FormEvent, useEffect, useState } from 'react';
-import './sign-up.scss'
+
+import './sign-up.scss';
+
 import ContainerForms from '../../shared/UI/container-forms/container-forms';
 import { PATHNAMES } from '../../shared/consts/routes';
 import InputPassWord from '../../shared/UI/input-password/input-password';
-
 import { PasswordRequirement } from '../../shared/consts/passwordRequirement';
 import { useHelperPassWordValidator } from '../../core/hooks/validatorHook';
 import HelperPassword from './password-helper/passwordHelper';

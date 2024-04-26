@@ -16,7 +16,7 @@ const NavigationPaginator: React.FC<NavigationPaginatorProps> = props => {
   const [extPrevious, setExtPrevious] = useState<boolean>(false);
   const [extNext, setExtNext] = useState<boolean>(true);
   const [update, setUpdate] = useState<number[]>([]);
-  const checkTotal = totalPages > 12;
+  const checkTotal = totalPages > 13;
   const previous  = classNames('nav_ext', {isActive: extPrevious});
   const next = classNames('nav_ext', {isActive: extNext});
 
@@ -65,7 +65,7 @@ const NavigationPaginator: React.FC<NavigationPaginatorProps> = props => {
   };
 
   useEffect(() => {
-    if (totalPages > 12 && !!update.length) {
+    if (totalPages > 13 && !!update.length) {
       const upDate = onPaginatorUpdate(update, page, totalPages);
       setUpdate(upDate);
      
