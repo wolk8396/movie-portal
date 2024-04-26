@@ -1,0 +1,50 @@
+@import '../../../styles/mixins.scss';
+@import '../../../styles/color.scss';
+
+.failure {
+  @include flex(row, center, center);
+  align-items: center;
+  margin-top: 7rem;
+
+  .container-failure {
+    @include grid-rows(.1fr .4fr .1fr .1fr .1fr);
+    align-items: center;
+    margin-bottom: 2rem;
+
+    .wrapper-title{
+      @include flex(column, space-between, center);
+
+      .title-failure {
+        @include flex(row, center, center);
+        @include fonts('Montserrat', 3.375rem, $lite_pink, 500);
+      }
+
+      .title-planned {
+        @include fonts('Montserrat', 2rem, $lite_pink, 500);
+        text-align: center;
+        width: 74%;
+      }
+    }
+
+    .container-cat-failure {
+      height: 60%;
+      width: 100%;
+
+      .cat-failure {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+}
+
+@media(max-width: 490px) {
+  .failure
+  .container-failure
+  .wrapper-title {
+    .title-failure {
+      font-size: 2.4rem;
+    }
+  }
+}
