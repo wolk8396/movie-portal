@@ -7,8 +7,6 @@
   right: 0;
   bottom: 0;
   left: 0;
-  align-items: center;
-  justify-content: center;
   user-select: none;
   z-index: 100;
 
@@ -23,9 +21,8 @@
     background:none;
 
     .lds-ring {
-      // position: relative;
-      max-width: 300px;
-      max-height: 300px;
+      max-width: 12.5rem;
+      max-height: 12.5rem;
       width: 100%;
       height: 100%;
       background:none;

@@ -14,15 +14,15 @@ const getItems = (uid: string | null | undefined): FavoritesModels | null   => {
 
 const getUser = (): FormDataModel => {
   return JSON.parse(localStorage.getItem('user') || 'null');
-}
+};
 
 const setUsers = (user: FormDataModel): void => {
   localStorage.setItem('user', JSON.stringify(user));
-}
+};
 
 const LogOutAuth = () => {
   localStorage.removeItem('user');
-}
+};
 
 const setItems = (items: MapDateFilms, uid: string): void => {
   const films: FavoritesModels[] = JSON.parse(localStorage.getItem('films') || '[]');
