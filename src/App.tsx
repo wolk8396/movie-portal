@@ -52,11 +52,11 @@ function App() {
               <SignIN/>
             </Suspense>
           } />
-          <Route path={PATHNAMES.reject} element={
+          {/* <Route path={PATHNAMES.reject} element={
             <Suspense fallback={<p></p>}>
               <Main/>
            </Suspense>
-          } />
+          } /> */}
              <Route path={PATHNAMES.error} element={
             <Suspense fallback={<p></p>}>
               <NotFound/>

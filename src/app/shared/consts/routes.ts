@@ -6,7 +6,7 @@ const PATHNAMES: DynamicKeyModels = {
   favorites: 'favorites',
   sign_up: 'sign-up',
   sign_in: 'sign_in',
-  error: 'error',
+  error: '*',
   reject:'*',
 };
 

@@ -20,13 +20,13 @@ const ConfirmationRemoveItem: React.FC<ConfirmationProps> = ({title, open, remov
           title={'Close'} 
           className={'pink'}
           onClick={() => open(true)}
-          style={{maxWidth: '100px', padding: '0.4rem 0'}}
+          style={{maxWidth: '100px', padding: '0.5rem 0'}}
         />
         <Button 
           title={'Ok'} 
           className={'pink'}
           onClick={remove}
-          style={{maxWidth: '100px', padding: '0.6rem 0'}}
+          style={{maxWidth: '100px', padding: '0.5rem 0'}}
         />
       </div>
     </div>
