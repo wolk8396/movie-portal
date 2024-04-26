@@ -9,7 +9,6 @@ import NavTitle from '../../../shared/UI/title-cart/nav-title';
 import Button from '../../../shared/UI/button/button';
 import Dialog from '../../../shared/UI/dialog/dialog';
 import { getItems, getUser, removeItems, setItems } from '../../../core/services/localstorage.services';
-import { deleteFavoritesText } from '../../../shared/consts/messages';
 import ConfirmationRemoveItem from '../../../shared/UI/confirmationRemoveItem/confirmationRemoveItem';
 import ConfirmationLogIn from '../../../shared/UI/confirmation-LogIn/Confirmation-logIn';
 import { useAppSelector } from '../../../redux/store';

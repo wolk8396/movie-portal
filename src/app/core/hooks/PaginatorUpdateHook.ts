@@ -8,12 +8,12 @@ export const usePaginatorUpdate = (totalPages:number, start:number = 2): {array:
       setArray([])
     };
 
-    if (totalPages <= 12) {
+    if (totalPages <= 13) {
       const array = [...Array.from({length: totalPages - start}, (_, i) => ( i + 2))]
       setArray(array);
     };
 
-    if (totalPages > 12) {
+    if (totalPages > 13) {
       const array = [...Array.from({length: 9}, (_, i) => ( i + 2))];
       setArray(array);
     };

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import './favorites.scss'
+import './favorites.scss';
 import { getItems, getUser, removeItems } from '../../core/services/localstorage.services';
 import { MapDateFilms } from '../../core/models/movie.models';
 import Cart from '../../shared/UI/cart/cart';
@@ -9,8 +9,6 @@ import { PATHNAMES } from '../../shared/consts/routes';
 import Dialog from '../../shared/UI/dialog/dialog';
 import { useNavigate } from 'react-router-dom';
 import ConfirmationRemoveItem from '../../shared/UI/confirmationRemoveItem/confirmationRemoveItem';
-import { useAppSelector } from '../../redux/store';
-import { KEY_LOG_AUTH } from '../../redux/slices/logSlice';
 
 
 const Favorites: React.FC = () => {
