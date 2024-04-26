@@ -20,19 +20,18 @@
     .title {
       margin-bottom: .5rem;
       margin-left: .7rem;
-      font-size: 14px;
+      font-size: .875rem;
     }
   
     .mask {
       width: 100%;
       @include flex(column, space-between, center);
-      min-height: 25px;
-
+      min-height: 1.56rem;
 
       .form-input {
         width: 94%;
         border: none;
-        min-height: 25px;
+        min-height: 1.56rem;
   
       
         &:focus {

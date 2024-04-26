@@ -3,7 +3,6 @@
 
 .failure {
   @include flex(row, center, center);
-  align-items: center;
   margin-top: 7rem;
 
   .container-failure {

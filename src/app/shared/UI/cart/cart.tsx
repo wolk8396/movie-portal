@@ -11,10 +11,11 @@ interface CartProps {
   buttonElement?: React.ReactNode;
   children?: React.ReactNode;
   closeBtn?: boolean;
+  description?: boolean;
   onDeleteCart?: () => void;
 }
 
-const Cart: React.FC<CartProps> = ({date, titleElement, children, closeBtn, onDeleteCart}) => {
+const Cart: React.FC<CartProps> = ({date, titleElement, children, closeBtn, onDeleteCart, description}) => {
   return (
     <div className='short-story'>
       <div className='short-story__header'>
@@ -41,7 +42,7 @@ const Cart: React.FC<CartProps> = ({date, titleElement, children, closeBtn, onDe
           <span className='info__item'><strong>Жанр:</strong> {date.genres}</span>
         </div>
       </div>
-      <span className='short-story__description'>{date.description}</span>
+     <span className='short-story__description'>{description ? date.description : ''}</span>
       {children}
     </div>
   )

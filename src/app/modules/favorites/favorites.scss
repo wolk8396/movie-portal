@@ -1,3 +1,5 @@
+@import '../../../styles/mixins.scss';
+
 .wrapper-favorites {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -13,8 +15,7 @@
 
 @media(max-width: 700px) {
   .wrapper-favorites {
-    display: flex;
-    flex-direction: column;
+    @include flex(column, space-between, flex-start);
     margin-bottom: 4rem;
   }
 }

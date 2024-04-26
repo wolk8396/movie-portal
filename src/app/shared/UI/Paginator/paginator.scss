@@ -3,15 +3,13 @@
 @import '../../../../styles/fonts.scss';
 
 .paginator {
-  display: flex;
   flex-wrap: wrap;
   row-gap: 0.3rem;
   column-gap: 0.25rem;
   width: 100%;
   max-width: 34.4rem;
   margin: 0 auto;
-  align-items: center;
-  justify-content: center;
+  @include flex(row, center, center);
   padding: 1rem;
 
   &__bot-navigation {

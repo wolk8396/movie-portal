@@ -2,7 +2,6 @@
 @import '../../../../styles/fonts.scss';
 @import '../../../../styles/mixins.scss';
 
-
 .container-forms {
   @include flex(column, space-between, center);
   width: 100%;

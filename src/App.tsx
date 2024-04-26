@@ -7,16 +7,18 @@ import Header from './app/core/components/header/header';
 import Spinner from './app/shared/UI/spinner/spinner';
 import { useAppSelector } from './app/redux/store';
 import { KEY_LOADING_APP } from './app/redux/slices/loadingSlice';
+import { withErrorBoundary } from 'react-error-boundary';
+import NotFound from './app/modules/error/error';
 
 const Main = lazy(() => import('./app/modules/main/main'));
 const Film = lazy(() => import('./app/modules/film/film'));
 const SignUP = lazy(() => import('./app/modules/sign-up/sign-up'));
 const SignIN = lazy(() => import('./app/modules/sign-in/sign-in'));
 const Favorites = lazy(() => import('./app/modules/favorites/favorites'));
-const NotFound =  lazy(() => import('./app/modules/error/error'));
+const NotFoundPage =  lazy(() => import('./app/modules/error/error'));
 
 function App() {
-  const {loading, error} = useAppSelector(state => state[KEY_LOADING_APP]);
+  const { loading } = useAppSelector(state => state[KEY_LOADING_APP]);
   return (
     <>
       <Spinner loading={loading}/>
@@ -27,39 +29,34 @@ function App() {
       <main className='main-app'>
         <Routes>
           <Route path={PATHNAMES.main} element={
-            <Suspense fallback={<p></p>}>
+            <Suspense fallback={''}>
               <Main/>
             </Suspense>
             }
           />
           <Route path={`${PATHNAMES.film}/:id`} element={
-            <Suspense fallback={<p></p>}>
+            <Suspense fallback={''}>
               <Film/>
             </Suspense>
           }/> 
           <Route path={PATHNAMES.favorites} element={
-            <Suspense fallback={<p></p>}>
+            <Suspense fallback={''}>
               <Favorites/>
             </Suspense>
           } />
           <Route path={PATHNAMES.sign_up} element={
-             <Suspense fallback={<p></p>}>
+             <Suspense fallback={''}>
               <SignUP/>
             </Suspense>
           } />
           <Route path={PATHNAMES.sign_in} element={
-            <Suspense fallback={<p></p>}>
+            <Suspense fallback={''}>
               <SignIN/>
             </Suspense>
           } />
-          {/* <Route path={PATHNAMES.reject} element={
-            <Suspense fallback={<p></p>}>
-              <Main/>
-           </Suspense>
-          } /> */}
              <Route path={PATHNAMES.error} element={
-            <Suspense fallback={<p></p>}>
-              <NotFound/>
+            <Suspense fallback={''}>
+              <NotFoundPage/>
            </Suspense>
           } />
         </Routes>
@@ -69,4 +66,6 @@ function App() {
   );
 }
 
-export default App;
+export default withErrorBoundary(App, {
+  FallbackComponent:NotFound
+});

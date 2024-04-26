@@ -3,10 +3,7 @@
 @import '../../../../styles/mixins.scss';
  
 .confirmation-messages{
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  align-items: center;
+  @include flex(column, space-between, center);
   height: 100%;
 
   &__title {
@@ -20,9 +17,7 @@
   }
 
   &__footer {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
+    @include flex(row, space-between, flex-start);
     margin-top: 1rem;
     width: 100%;
   }
