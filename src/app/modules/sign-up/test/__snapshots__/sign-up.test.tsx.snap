@@ -1,0 +1,143 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`password test snapshot matches 1`] = `
+<DocumentFragment>
+  <div
+    class="container-forms sign_up"
+  >
+    <span
+      class="container-forms__title"
+    >
+      Sign Up
+    </span>
+    <form
+      class="container-forms__form"
+      style="height: 500px;"
+    >
+      <div
+        class="container-input"
+        style="max-width: 100%;"
+      >
+        <div
+          class="container-input__container"
+          style="max-width: 100%;"
+        >
+          <div
+            class="mask"
+            style="padding: 2.2% 2%; border-radius: 20px;"
+          >
+            <input
+              class="form-input"
+              placeholder="Email"
+            />
+          </div>
+        </div>
+        <div
+          class="validMessage"
+        />
+      </div>
+      <div
+        class="container-password"
+      >
+        <div
+          class="input-password"
+        >
+          <span
+            class="input-password__container"
+          >
+            <input
+              class="form-input"
+              id="password"
+              placeholder="password"
+              type="password"
+            />
+            <button
+              class="eye"
+            >
+              <img
+                alt=""
+                src="eye-invisible.svg"
+              />
+            </button>
+          </span>
+        </div>
+        <div
+          class="validMessage"
+        >
+          <ul
+            class="hint-password isHidden"
+          >
+            Field requirements:
+            <li
+              class="hints"
+            >
+              A-z
+            </li>
+            <li
+              class="hints"
+            >
+              0-9
+            </li>
+            <li
+              class="hints"
+            >
+              8-20 symbol
+            </li>
+            <li
+              class="hints"
+            >
+              ? ! * + % @ $ #
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        class="container-password"
+      >
+        <div
+          class="input-password"
+        >
+          <span
+            class="input-password__container"
+          >
+            <input
+              class="form-input"
+              id="password"
+              placeholder="Confirm password"
+              type="password"
+            />
+            <button
+              class="eye"
+            >
+              <img
+                alt=""
+                src="eye-invisible.svg"
+              />
+            </button>
+          </span>
+        </div>
+        <div
+          class="validMessage"
+        />
+      </div>
+      <button
+        class="btn green"
+        style="max-width: 93%; padding: 0.6rem 0px;"
+        type="submit"
+      >
+        Sign Up
+      </button>
+    </form>
+    <div
+      class="container-forms__link"
+    >
+      <a
+        class="nav"
+        href="/sign_in"
+      >
+        Now Sign In
+      </a>
+    </div>
+  </div>
+</DocumentFragment>
+`;
