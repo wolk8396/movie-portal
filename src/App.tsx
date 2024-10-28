@@ -19,6 +19,13 @@ const NotFoundPage =  lazy(() => import('./app/modules/error/error'));
 
 function App() {
   const { loading } = useAppSelector(state => state[KEY_LOADING_APP]);
+  console.log('test');
+
+
+  const funTest = () => {
+    console.log('bdbdbbdbdbdbdbdbd');
+  }
+  
   return (
     <>
       <Spinner loading={loading}/>
