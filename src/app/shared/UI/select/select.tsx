@@ -14,11 +14,11 @@ const Select: React.FC<SelectProps> = ({collection, onGetValue, title}) => {
   const [selectedValue, setSelectedValue] = useState(title);
   const elementRef = useRef<HTMLDivElement>(null);
 
-  const toggleDropdown = () => {
+  const toggleDropdown111 = () => {
     setIsActive(!isActive);
   };
 
-  const handleOptionClick = (option: HTMLElement, value: DynamicKeyModels) => {
+  const handleOptionClick111 = (option: HTMLElement, value: DynamicKeyModels) => {
     setSelectedValue(option.textContent || '');
     setIsActive(false);
     onGetValue(value)

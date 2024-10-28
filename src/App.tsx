@@ -17,7 +17,7 @@ const SignIN = lazy(() => import('./app/modules/sign-in/sign-in'));
 const Favorites = lazy(() => import('./app/modules/favorites/favorites'));
 const NotFoundPage =  lazy(() => import('./app/modules/error/error'));
 
-function App() {
+function App1111() {
   const { loading } = useAppSelector(state => state[KEY_LOADING_APP]);
   console.log('test');
 
