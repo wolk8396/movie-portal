@@ -17,19 +17,20 @@ const ContainerForms: React.FC<ContainerFormsProps> = (
   {children, title, link, titleLink, onSubmit, styleForms, classForm}
 ) => {
   return (
-    <div className={`container-forms ${classForm}`}>
-      <span className='container-forms__title'>{title}</span>
-      <form className='container-forms__form' onSubmit={onSubmit} style={styleForms}>
-        {children}
-      </form>
-      <div className='container-forms__link'>
-        <NavTitle 
-          className={'nav'} 
-          link={link} 
-          title={titleLink}
-        />
-      </div>
-    </div>
+    <p>tttwttstwtwt</p>
+    // <div className={`container-forms ${classForm}`}>
+    //   <span className='container-forms__title'>{title}</span>
+    //   <form className='container-forms__form' onSubmit={onSubmit} style={styleForms}>
+    //     {children}
+    //   </form>
+    //   <div className='container-forms__link'>
+    //     <NavTitle 
+    //       className={'nav'} 
+    //       link={link} 
+    //       title={titleLink}
+    //     />
+    //   </div>
+    // </div>
   )
 };
 
