@@ -16,12 +16,18 @@ const Select: React.FC<SelectProps> = ({collection, onGetValue, title}) => {
 
   const toggleDropdown = () => {
     setIsActive(!isActive);
+    console.log('1');
+    console.log('3'); 
   };
 
   const handleOptionClick = (option: HTMLElement, value: DynamicKeyModels) => {
     setSelectedValue(option.textContent || '');
     setIsActive(false);
-    onGetValue(value)
+    onGetValue(value);
+    console.log(1);
+    console.log(2);
+    console.log(3);
+    console.log('final');
   };
 
   const handleOptionKeyUp = (
